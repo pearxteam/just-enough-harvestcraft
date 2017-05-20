@@ -29,7 +29,7 @@ public class PresserRecipeCategory extends BlankRecipeCategory<BlankRecipeWrappe
 
     public PresserRecipeCategory(IGuiHelper helper)
     {
-        title = I18n.translateToLocal("jehc.presser.name");
+        title = I18n.translateToLocal("jehc.pressing.name");
         background = helper.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/presser.png"), 3, 8, 170, 66);
     }
 
