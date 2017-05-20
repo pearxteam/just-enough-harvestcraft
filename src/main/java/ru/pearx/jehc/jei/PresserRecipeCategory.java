@@ -35,42 +35,11 @@ public class PresserRecipeCategory extends BlankRecipeCategory<BlankRecipeWrappe
         background = helper.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/presser.png"), 3, 8, 170, 66);
     }
 
-    public static void register(IModRegistry registry, IGuiHelper guiHelper)
+    public static void setup(IModRegistry registry, IGuiHelper guiHelper)
     {
         registry.addRecipeCategories(new PresserRecipeCategory(guiHelper));
         registry.addRecipeCategoryCraftingItem(new ItemStack(BlockRegistry.presserItemBlock), UID);
-        registry.addRecipeHandlers(new IRecipeHandler<PresserRecipeWrapper>()
-        {
-            @Override
-            public Class<PresserRecipeWrapper> getRecipeClass()
-            {
-                return PresserRecipeWrapper.class;
-            }
-
-            @Override
-            public String getRecipeCategoryUid()
-            {
-                return UID;
-            }
-
-            @Override
-            public String getRecipeCategoryUid(PresserRecipeWrapper recipe)
-            {
-                return UID;
-            }
-
-            @Override
-            public IRecipeWrapper getRecipeWrapper(PresserRecipeWrapper recipe)
-            {
-                return recipe;
-            }
-
-            @Override
-            public boolean isRecipeValid(PresserRecipeWrapper recipe)
-            {
-                return true;
-            }
-        });
+        registry.addRecipeHandlers(new BasicRecipeHandler(PresserRecipeWrapper.class, UID));
         List<PresserRecipeWrapper> rec = new ArrayList<>();
         try
         {
