@@ -1,0 +1,38 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "http://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+repositories {
+  maven {
+    name "progwml"
+    url "http://dvs1.progwml6.com/files/maven"
+  }
+}
+
+version = "1.0"
+group = "ru.pearx.jehc"
+archivesBaseName = "jehc"
+
+sourceCompatibility = targetCompatibility = "1.8"
+compileJava {
+    sourceCompatibility = targetCompatibility = "1.8"
+}
+
+minecraft {
+    version = "1.11.2-13.20.0.2299"
+    runDir = "run"
+    
+    mappings = "snapshot_20170519"
+}
+
+dependencies {
+  deobfCompile "mezz.jei:jei_1.11.2:4.3.3.270:api"
+  runtime "mezz.jei:jei_1.11.2:4.3.3.270"
+}
