@@ -9,6 +9,8 @@ import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.BlankRecipeCategory;
 import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeHandler;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
@@ -37,7 +39,38 @@ public class PresserRecipeCategory extends BlankRecipeCategory<BlankRecipeWrappe
     {
         registry.addRecipeCategories(new PresserRecipeCategory(guiHelper));
         registry.addRecipeCategoryCraftingItem(new ItemStack(BlockRegistry.presserItemBlock), UID);
-        registry.handleRecipes(PresserRecipeWrapper.class, recipe -> recipe, UID);
+        registry.addRecipeHandlers(new IRecipeHandler<PresserRecipeWrapper>()
+        {
+            @Override
+            public Class<PresserRecipeWrapper> getRecipeClass()
+            {
+                return PresserRecipeWrapper.class;
+            }
+
+            @Override
+            public String getRecipeCategoryUid()
+            {
+                return UID;
+            }
+
+            @Override
+            public String getRecipeCategoryUid(PresserRecipeWrapper recipe)
+            {
+                return UID;
+            }
+
+            @Override
+            public IRecipeWrapper getRecipeWrapper(PresserRecipeWrapper recipe)
+            {
+                return recipe;
+            }
+
+            @Override
+            public boolean isRecipeValid(PresserRecipeWrapper recipe)
+            {
+                return true;
+            }
+        });
         List<PresserRecipeWrapper> rec = new ArrayList<>();
         try
         {
@@ -49,7 +82,7 @@ public class PresserRecipeCategory extends BlankRecipeCategory<BlankRecipeWrappe
         {
             e.printStackTrace();
         }
-        registry.addRecipes(rec, UID);
+        registry.addRecipes(rec);
     }
 
     @Override
