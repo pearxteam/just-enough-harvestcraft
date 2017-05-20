@@ -13,6 +13,8 @@ public class JEHCPlugin extends BlankModPlugin
     @Override
     public void register(IModRegistry registry)
     {
-        PresserRecipeCategory.register(registry, registry.getJeiHelpers().getGuiHelper());
+        PresserRecipeCategory.setup(registry, registry.getJeiHelpers().getGuiHelper());
+        ShippingBinRecipeCategory.setup(registry, registry.getJeiHelpers().getGuiHelper());
+        MarketRecipeCategory.setup(registry, registry.getJeiHelpers().getGuiHelper());
     }
 }

@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * Created by mrAppleXZ on 20.05.17 16:08.
  */
-public class PresserRecipeCategory extends BlankRecipeCategory<BlankRecipeWrapper>
+public class PresserRecipeCategory extends BlankRecipeCategory<PresserRecipeWrapper>
 {
     public static final String UID = "jehc.presser";
     private final String title;
@@ -33,7 +33,7 @@ public class PresserRecipeCategory extends BlankRecipeCategory<BlankRecipeWrappe
         background = helper.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/presser.png"), 3, 8, 170, 66);
     }
 
-    public static void register(IModRegistry registry, IGuiHelper guiHelper)
+    public static void setup(IModRegistry registry, IGuiHelper guiHelper)
     {
         registry.addRecipeCategories(new PresserRecipeCategory(guiHelper));
         registry.addRecipeCategoryCraftingItem(new ItemStack(BlockRegistry.presserItemBlock), UID);
@@ -71,7 +71,7 @@ public class PresserRecipeCategory extends BlankRecipeCategory<BlankRecipeWrappe
     }
 
     @Override
-    public void setRecipe(IRecipeLayout recipeLayout, BlankRecipeWrapper recipeWrapper, IIngredients ingredients)
+    public void setRecipe(IRecipeLayout recipeLayout, PresserRecipeWrapper recipeWrapper, IIngredients ingredients)
     {
         recipeLayout.getItemStacks().init(0, true, 76, 14);
         recipeLayout.getItemStacks().set(0, ingredients.getInputs(ItemStack.class).get(0));
@@ -83,4 +83,6 @@ public class PresserRecipeCategory extends BlankRecipeCategory<BlankRecipeWrappe
             recipeLayout.getItemStacks().set(2, ingredients.getOutputs(ItemStack.class).get(1));
         }
     }
+
+
 }

@@ -33,5 +33,4 @@ public class PresserRecipeWrapper extends BlankRecipeWrapper
         ingredients.setOutputs(ItemStack.class, outputs);
     }
 
-
 }
