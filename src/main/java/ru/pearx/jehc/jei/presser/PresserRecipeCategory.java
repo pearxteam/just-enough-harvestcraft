@@ -1,4 +1,4 @@
-package ru.pearx.jehc.jei;
+package ru.pearx.jehc.jei.presser;
 
 import com.pam.harvestcraft.blocks.BlockRegistry;
 import com.pam.harvestcraft.item.PresserRecipes;
@@ -9,12 +9,11 @@ import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.BlankRecipeCategory;
 import mezz.jei.api.recipe.BlankRecipeWrapper;
-import mezz.jei.api.recipe.IRecipeHandler;
-import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
 import org.apache.commons.lang3.reflect.FieldUtils;
+import ru.pearx.jehc.jei.BasicRecipeHandler;
 
 import java.util.ArrayList;
 import java.util.List;
