@@ -1,4 +1,4 @@
-package ru.pearx.jehc.jei;
+package ru.pearx.jehc.jei.sbm;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
@@ -27,7 +27,7 @@ public class SBMRecipeCategory extends BlankRecipeCategory<BlankRecipeWrapper>
     public SBMRecipeCategory(String unloc, String uid, IGuiHelper helper, String png)
     {
         this.uid = uid;
-        title = I18n.translateToLocalFormatted(unloc);
+        title = I18n.translateToLocal(unloc);
         bg = helper.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 32, 0, 112, 76);
     }
 
@@ -62,7 +62,7 @@ public class SBMRecipeCategory extends BlankRecipeCategory<BlankRecipeWrapper>
     @SideOnly(Side.CLIENT)
     public void drawExtras(Minecraft minecraft)
     {
-        String s = I18n.translateToLocalFormatted("jehc.price");
+        String s = I18n.translateToLocal("jehc.price");
         int width = minecraft.fontRenderer.getStringWidth(s);
         minecraft.fontRenderer.drawString(s, 67 + ((37 - width) / 2), 25 + ((18 - minecraft.fontRenderer.FONT_HEIGHT) / 2), Color.BLACK.getRGB());
     }

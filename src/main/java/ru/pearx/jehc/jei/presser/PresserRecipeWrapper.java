@@ -1,4 +1,4 @@
-package ru.pearx.jehc.jei;
+package ru.pearx.jehc.jei.presser;
 
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.BlankRecipeWrapper;

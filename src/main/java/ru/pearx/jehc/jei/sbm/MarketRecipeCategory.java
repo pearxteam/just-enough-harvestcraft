@@ -1,8 +1,7 @@
-package ru.pearx.jehc.jei;
+package ru.pearx.jehc.jei.sbm;
 
 import com.pam.harvestcraft.blocks.BlockRegistry;
 import com.pam.harvestcraft.tileentities.MarketItems;
-import com.pam.harvestcraft.tileentities.ShippingBinItems;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
 import net.minecraft.item.ItemStack;
