@@ -12,12 +12,12 @@ import java.util.Arrays;
 /**
  * Created by mrAppleXZ on 20.05.17 15:54.
  */
-@Mod(modid = JEHC.MODID, name = JEHC.NAME, version = JEHC.VERSION, acceptedMinecraftVersions = "[1.11,1.11.2]")
+@Mod(modid = JEHC.MODID, name = JEHC.NAME, version = JEHC.VERSION, acceptedMinecraftVersions = "[1.11.2]")
 public class JEHC
 {
     public static final String NAME = "Just Enough HarvestCraft";
     public static final String MODID = "jehc";
-    public static final String VERSION = "1.2.1";
+    public static final String VERSION = "1.2.2";
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent e)

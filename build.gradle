@@ -16,9 +16,9 @@ repositories {
   }
 }
 
-version = "1.2.1"
+version = "1.2.2"
 group = "ru.pearx.jehc"
-archivesBaseName = "jehc"
+archivesBaseName = "jehc-1.11.2"
 
 sourceCompatibility = targetCompatibility = "1.8"
 compileJava {
