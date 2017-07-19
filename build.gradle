@@ -9,6 +9,13 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
+repositories {
+    maven {
+        name "progwml"
+        url "http://dvs1.progwml6.com/files/maven"
+    }
+}
+
 version = "${mc_version}-${mod_version}"
 group = "ru.pearx.jehc"
 archivesBaseName = "jehc"
