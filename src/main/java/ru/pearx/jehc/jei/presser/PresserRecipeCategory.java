@@ -12,17 +12,18 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
 import org.apache.commons.lang3.reflect.FieldUtils;
+import ru.pearx.jehc.jei.JEHCPlugin;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
+/*
  * Created by mrAppleXZ on 20.05.17 16:08.
  */
 public class PresserRecipeCategory extends BlankRecipeCategory<PresserRecipeWrapper>
 {
-    public static final String UID = "jehc.presser";
+    private static final String UID = "jehc.presser";
     private final String title;
     private final IDrawable background;
 
@@ -83,5 +84,9 @@ public class PresserRecipeCategory extends BlankRecipeCategory<PresserRecipeWrap
         }
     }
 
-
+    @Override
+    public String getModName()
+    {
+        return JEHCPlugin.HC_MOD_NAME;
+    }
 }

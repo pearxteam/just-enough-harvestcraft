@@ -9,12 +9,12 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/*
  * Created by mrAppleXZ on 20.05.17 23:51.
  */
 public class MarketRecipeCategory extends SBMRecipeCategory
 {
-    public static final String UID = "jehc.market";
+    private static final String UID = "jehc.market";
 
     public MarketRecipeCategory(IGuiHelper helper)
     {

@@ -9,7 +9,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.awt.*;
 
-/**
+/*
  * Created by mrAppleXZ on 21.05.17 11:41.
  */
 public class ApiaryRecipeWrapper extends BlankRecipeWrapper

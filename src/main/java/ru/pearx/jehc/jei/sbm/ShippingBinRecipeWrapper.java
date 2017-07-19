@@ -5,7 +5,7 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.BlankRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
-/**
+/*
  * Created by mrAppleXZ on 20.05.17 22:57.
  */
 public class ShippingBinRecipeWrapper extends BlankRecipeWrapper

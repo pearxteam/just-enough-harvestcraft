@@ -12,15 +12,16 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import ru.pearx.jehc.jei.JEHCPlugin;
 
 import java.awt.*;
 
-/**
+/*
  * Created by mrAppleXZ on 20.05.17 23:54.
  */
-public class SBMRecipeCategory extends BlankRecipeCategory<BlankRecipeWrapper>
+public abstract class SBMRecipeCategory extends BlankRecipeCategory<BlankRecipeWrapper>
 {
-    public final String uid;
+    private final String uid;
     private final String title;
     private final IDrawable bg;
 
@@ -41,6 +42,12 @@ public class SBMRecipeCategory extends BlankRecipeCategory<BlankRecipeWrapper>
     public String getTitle()
     {
         return title;
+    }
+
+    @Override
+    public String getModName()
+    {
+        return JEHCPlugin.HC_MOD_NAME;
     }
 
     @Override

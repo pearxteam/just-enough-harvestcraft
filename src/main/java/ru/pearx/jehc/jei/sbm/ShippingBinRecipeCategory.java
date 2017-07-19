@@ -9,12 +9,12 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/*
  * Created by mrAppleXZ on 20.05.17 23:01.
  */
 public class ShippingBinRecipeCategory extends SBMRecipeCategory
 {
-    public static final String UID = "jehc.shippingbin";
+    private static final String UID = "jehc.shippingbin";
 
     public ShippingBinRecipeCategory(IGuiHelper helper)
     {

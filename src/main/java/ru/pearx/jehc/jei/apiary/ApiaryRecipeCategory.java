@@ -11,10 +11,11 @@ import mezz.jei.api.recipe.BlankRecipeCategory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
+import ru.pearx.jehc.jei.JEHCPlugin;
 
 import java.util.Arrays;
 
-/**
+/*
  * Created by mrAppleXZ on 21.05.17 11:51.
  */
 public class ApiaryRecipeCategory extends BlankRecipeCategory<ApiaryRecipeWrapper>
@@ -66,5 +67,11 @@ public class ApiaryRecipeCategory extends BlankRecipeCategory<ApiaryRecipeWrappe
         recipeLayout.getItemStacks().set(0, ingredients.getInputs(ItemStack.class).get(0));
         recipeLayout.getItemStacks().init(1, false, 58, 8);
         recipeLayout.getItemStacks().set(1, ingredients.getOutputs(ItemStack.class).get(0));
+    }
+
+    @Override
+    public String getModName()
+    {
+        return JEHCPlugin.HC_MOD_NAME;
     }
 }

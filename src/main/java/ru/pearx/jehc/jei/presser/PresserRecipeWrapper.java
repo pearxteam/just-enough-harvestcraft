@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+/*
  * Created by mrAppleXZ on 20.05.17 16:07.
  */
 public class PresserRecipeWrapper extends BlankRecipeWrapper

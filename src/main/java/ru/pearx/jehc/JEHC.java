@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.versioning.VersionRange;
 
 import java.util.Arrays;
 
-/**
+/*
  * Created by mrAppleXZ on 20.05.17 15:54.
  */
 @Mod(modid = JEHC.MODID, name = JEHC.NAME, version = JEHC.VERSION, acceptedMinecraftVersions = "[1.11.2]")
