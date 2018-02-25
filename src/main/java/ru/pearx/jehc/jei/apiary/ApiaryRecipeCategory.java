@@ -1,5 +1,6 @@
 package ru.pearx.jehc.jei.apiary;
 
+import com.pam.harvestcraft.Reference;
 import com.pam.harvestcraft.blocks.BlockRegistry;
 import com.pam.harvestcraft.item.ItemRegistry;
 import mezz.jei.api.IGuiHelper;
@@ -7,18 +8,17 @@ import mezz.jei.api.IModRegistry;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeCategory;
+import mezz.jei.api.recipe.IRecipeCategory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
-import ru.pearx.jehc.jei.JEHCPlugin;
 
 import java.util.Arrays;
 
 /*
  * Created by mrAppleXZ on 21.05.17 11:51.
  */
-public class ApiaryRecipeCategory extends BlankRecipeCategory<ApiaryRecipeWrapper>
+public class ApiaryRecipeCategory implements IRecipeCategory<ApiaryRecipeWrapper>
 {
     public static final String UID = "jehc.apiary";
     private final String title;
@@ -30,10 +30,9 @@ public class ApiaryRecipeCategory extends BlankRecipeCategory<ApiaryRecipeWrappe
         bg = help.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/apiary.png"), 3, 8, 170, 66);
     }
 
-    public static void setup(IModRegistry registry, IGuiHelper helper)
+    public static void setup(IModRegistry registry)
     {
-        registry.addRecipeCategories(new ApiaryRecipeCategory(helper));
-        registry.addRecipeCategoryCraftingItem(new ItemStack(BlockRegistry.apiaryItemBlock), UID);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.apiaryItemBlock), UID);
         registry.handleRecipes(ApiaryRecipeWrapper.class, recipe -> recipe, UID);
         registry.addRecipes(Arrays.asList(
                 new ApiaryRecipeWrapper(new ItemStack(ItemRegistry.queenbeeItem), new ItemStack(ItemRegistry.waxcombItem), 50),
@@ -72,6 +71,6 @@ public class ApiaryRecipeCategory extends BlankRecipeCategory<ApiaryRecipeWrappe
     @Override
     public String getModName()
     {
-        return JEHCPlugin.HC_MOD_NAME;
+        return Reference.NAME;
     }
 }

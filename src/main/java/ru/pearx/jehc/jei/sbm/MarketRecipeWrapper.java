@@ -2,13 +2,13 @@ package ru.pearx.jehc.jei.sbm;
 
 import com.pam.harvestcraft.tileentities.MarketData;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
 /*
  * Created by mrAppleXZ on 20.05.17 23:45.
  */
-public class MarketRecipeWrapper extends BlankRecipeWrapper
+public class MarketRecipeWrapper implements IRecipeWrapper
 {
     private MarketData md;
 

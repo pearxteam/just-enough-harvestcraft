@@ -2,15 +2,15 @@ package ru.pearx.jehc.jei.sbm;
 
 import com.pam.harvestcraft.tileentities.ShippingBinData;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
 /*
  * Created by mrAppleXZ on 20.05.17 22:57.
  */
-public class ShippingBinRecipeWrapper extends BlankRecipeWrapper
+public class ShippingBinRecipeWrapper implements IRecipeWrapper
 {
-    public ShippingBinData sbd;
+    private ShippingBinData sbd;
 
     public ShippingBinRecipeWrapper(ShippingBinData data)
     {

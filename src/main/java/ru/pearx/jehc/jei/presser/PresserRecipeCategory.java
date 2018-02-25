@@ -1,5 +1,6 @@
 package ru.pearx.jehc.jei.presser;
 
+import com.pam.harvestcraft.Reference;
 import com.pam.harvestcraft.blocks.BlockRegistry;
 import com.pam.harvestcraft.item.PresserRecipes;
 import mezz.jei.api.IGuiHelper;
@@ -7,12 +8,12 @@ import mezz.jei.api.IModRegistry;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeCategory;
+import mezz.jei.api.recipe.IRecipeCategory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
 import org.apache.commons.lang3.reflect.FieldUtils;
-import ru.pearx.jehc.jei.JEHCPlugin;
+import ru.pearx.jehc.JEHC;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.Map;
 /*
  * Created by mrAppleXZ on 20.05.17 16:08.
  */
-public class PresserRecipeCategory extends BlankRecipeCategory<PresserRecipeWrapper>
+public class PresserRecipeCategory implements IRecipeCategory<PresserRecipeWrapper>
 {
     private static final String UID = "jehc.presser";
     private final String title;
@@ -33,10 +34,9 @@ public class PresserRecipeCategory extends BlankRecipeCategory<PresserRecipeWrap
         background = helper.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/presser.png"), 3, 8, 170, 66);
     }
 
-    public static void setup(IModRegistry registry, IGuiHelper guiHelper)
+    public static void setup(IModRegistry registry)
     {
-        registry.addRecipeCategories(new PresserRecipeCategory(guiHelper));
-        registry.addRecipeCategoryCraftingItem(new ItemStack(BlockRegistry.presserItemBlock), UID);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.presserItemBlock), UID);
         registry.handleRecipes(PresserRecipeWrapper.class, recipe -> recipe, UID);
         List<PresserRecipeWrapper> rec = new ArrayList<>();
         try
@@ -47,7 +47,7 @@ public class PresserRecipeCategory extends BlankRecipeCategory<PresserRecipeWrap
             }
         } catch (IllegalAccessException e)
         {
-            e.printStackTrace();
+            JEHC.INSTANCE.getLog().error("An IllegalAccessException occurred while setting up the Presser recipes.", e);
         }
         registry.addRecipes(rec, UID);
     }
@@ -87,6 +87,6 @@ public class PresserRecipeCategory extends BlankRecipeCategory<PresserRecipeWrap
     @Override
     public String getModName()
     {
-        return JEHCPlugin.HC_MOD_NAME;
+        return Reference.NAME;
     }
 }

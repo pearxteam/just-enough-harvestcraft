@@ -1,19 +1,19 @@
 package ru.pearx.jehc.jei.trap;
 
+import com.pam.harvestcraft.Reference;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeCategory;
+import mezz.jei.api.recipe.IRecipeCategory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
-import ru.pearx.jehc.jei.JEHCPlugin;
 
 /*
  * Created by mrAppleXZ on 19.07.17 11:06.
  */
-public abstract  class TrapRecipeCategory extends BlankRecipeCategory<TrapRecipeWrapper>
+public abstract  class TrapRecipeCategory implements IRecipeCategory<TrapRecipeWrapper>
 {
     private final String uid;
     private final String title;
@@ -25,6 +25,7 @@ public abstract  class TrapRecipeCategory extends BlankRecipeCategory<TrapRecipe
         title = I18n.translateToLocal(unloc);
         bg = helper.createDrawable(new ResourceLocation("jehc", "textures/gui/" + png + "_trap_small.png"), 0, 0, 81, 29, 81, 29);
     }
+
     @Override
     public String getUid()
     {
@@ -40,7 +41,7 @@ public abstract  class TrapRecipeCategory extends BlankRecipeCategory<TrapRecipe
     @Override
     public String getModName()
     {
-        return JEHCPlugin.HC_MOD_NAME;
+        return Reference.NAME;
     }
 
     @Override

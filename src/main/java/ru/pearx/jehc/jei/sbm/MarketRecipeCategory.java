@@ -21,10 +21,9 @@ public class MarketRecipeCategory extends SBMRecipeCategory
         super("jehc.market.name", UID, helper, "market");
     }
 
-    public static void setup(IModRegistry registry, IGuiHelper helper)
+    public static void setup(IModRegistry registry)
     {
-        registry.addRecipeCategories(new MarketRecipeCategory(helper));
-        registry.addRecipeCategoryCraftingItem(new ItemStack(BlockRegistry.marketItemBlock), UID);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.marketItemBlock), UID);
         registry.handleRecipes(MarketRecipeWrapper.class, recipe -> recipe, UID);
         List<MarketRecipeWrapper> rec = new ArrayList<>();
         for(int i = 0; i < MarketItems.getSize(); i++)

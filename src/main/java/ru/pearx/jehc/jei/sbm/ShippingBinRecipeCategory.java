@@ -21,10 +21,9 @@ public class ShippingBinRecipeCategory extends SBMRecipeCategory
         super("jehc.shippingbin.name", UID, helper, "shippingbin");
     }
 
-    public static void setup(IModRegistry registry, IGuiHelper helper)
+    public static void setup(IModRegistry registry)
     {
-        registry.addRecipeCategories(new ShippingBinRecipeCategory(helper));
-        registry.addRecipeCategoryCraftingItem(new ItemStack(BlockRegistry.shippingbinItemBlock), UID);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.shippingbinItemBlock), UID);
         registry.handleRecipes(ShippingBinRecipeWrapper.class, recipe -> recipe, UID);
         List<ShippingBinRecipeWrapper> rec = new ArrayList<>();
         for(int i = 0; i < ShippingBinItems.getSize(); i++)

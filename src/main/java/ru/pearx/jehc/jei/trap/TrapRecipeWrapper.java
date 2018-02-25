@@ -1,14 +1,13 @@
 package ru.pearx.jehc.jei.trap;
 
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
-import scala.actors.threadpool.Arrays;
 
 /*
  * Created by mrAppleXZ on 19.07.17 10:39.
  */
-public abstract class TrapRecipeWrapper extends BlankRecipeWrapper
+public abstract class TrapRecipeWrapper implements IRecipeWrapper
 {
     private final ItemStack in;
     private final ItemStack out;

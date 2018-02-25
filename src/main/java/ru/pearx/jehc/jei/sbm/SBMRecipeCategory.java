@@ -1,25 +1,25 @@
 package ru.pearx.jehc.jei.sbm;
 
+import com.pam.harvestcraft.Reference;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeCategory;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
+import mezz.jei.api.recipe.IRecipeCategory;
+import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import ru.pearx.jehc.jei.JEHCPlugin;
 
 import java.awt.*;
 
 /*
  * Created by mrAppleXZ on 20.05.17 23:54.
  */
-public abstract class SBMRecipeCategory extends BlankRecipeCategory<BlankRecipeWrapper>
+public abstract class SBMRecipeCategory implements IRecipeCategory<IRecipeWrapper>
 {
     private final String uid;
     private final String title;
@@ -47,7 +47,7 @@ public abstract class SBMRecipeCategory extends BlankRecipeCategory<BlankRecipeW
     @Override
     public String getModName()
     {
-        return JEHCPlugin.HC_MOD_NAME;
+        return Reference.MODID;
     }
 
     @Override
@@ -57,7 +57,7 @@ public abstract class SBMRecipeCategory extends BlankRecipeCategory<BlankRecipeW
     }
 
     @Override
-    public void setRecipe(IRecipeLayout recipeLayout, BlankRecipeWrapper recipeWrapper, IIngredients ingredients)
+    public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients)
     {
         recipeLayout.getItemStacks().init(0, false, 40, 25);
         recipeLayout.getItemStacks().set(0, ingredients.getOutputs(ItemStack.class).get(0));
