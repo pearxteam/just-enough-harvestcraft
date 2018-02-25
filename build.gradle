@@ -33,7 +33,7 @@ minecraft {
     replace("@VERSION@", version)
     replace("@MCVERSION@", mc_version)
     replace("acceptedMinecraftVersions = \"\"", "acceptedMinecraftVersions = \"${accepted_mc_versions}\"")
-    replace("dependencies = \"\"", "dependencies = \"${dependencies}\"")
+    replace("dependencies = \"\"", "dependencies = \"${mod_dependencies}\"")
     replaceIn("JEHC.java")
 }
 
