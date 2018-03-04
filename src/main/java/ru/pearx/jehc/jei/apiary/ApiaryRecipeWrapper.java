@@ -1,7 +1,6 @@
 package ru.pearx.jehc.jei.apiary;
 
 import mezz.jei.api.ingredients.IIngredients;
-import mezz.jei.api.recipe.BlankRecipeWrapper;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -13,6 +12,7 @@ import java.awt.*;
 /*
  * Created by mrAppleXZ on 21.05.17 11:41.
  */
+@SideOnly(Side.CLIENT)
 public class ApiaryRecipeWrapper implements IRecipeWrapper
 {
     private ItemStack out;

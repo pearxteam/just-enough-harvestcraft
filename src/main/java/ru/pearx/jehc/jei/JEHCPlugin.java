@@ -4,6 +4,8 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.pearx.jehc.jei.apiary.ApiaryRecipeCategory;
 import ru.pearx.jehc.jei.presser.PresserRecipeCategory;
 import ru.pearx.jehc.jei.sbm.MarketRecipeCategory;
@@ -15,6 +17,7 @@ import ru.pearx.jehc.jei.trap.WaterTrapRecipeCategory;
  * Created by mrAppleXZ on 20.05.17 16:23.
  */
 @JEIPlugin
+@SideOnly(Side.CLIENT)
 public class JEHCPlugin implements IModPlugin
 {
     @Override

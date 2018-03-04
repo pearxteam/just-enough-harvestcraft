@@ -3,6 +3,8 @@ package ru.pearx.jehc.jei.presser;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +12,7 @@ import java.util.List;
 /*
  * Created by mrAppleXZ on 20.05.17 16:07.
  */
+@SideOnly(Side.CLIENT)
 public class PresserRecipeWrapper implements IRecipeWrapper
 {
     private final ItemStack in;

@@ -5,6 +5,8 @@ import com.pam.harvestcraft.tileentities.ShippingBinItems;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 /*
  * Created by mrAppleXZ on 20.05.17 23:01.
  */
+@SideOnly(Side.CLIENT)
 public class ShippingBinRecipeCategory extends SBMRecipeCategory
 {
     private static final String UID = "jehc.shippingbin";

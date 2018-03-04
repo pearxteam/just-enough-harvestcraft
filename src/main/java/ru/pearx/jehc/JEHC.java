@@ -3,6 +3,8 @@ package ru.pearx.jehc;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ModMetadata;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Arrays;
@@ -10,7 +12,8 @@ import java.util.Arrays;
 /*
  * Created by mrAppleXZ on 20.05.17 15:54.
  */
-@Mod(name = JEHC.NAME, modid = JEHC.MODID, version = JEHC.VERSION, acceptedMinecraftVersions = "", dependencies = "")
+@Mod(name = JEHC.NAME, modid = JEHC.MODID, version = JEHC.VERSION, acceptedMinecraftVersions = "", dependencies = "", clientSideOnly = true)
+@SideOnly(Side.CLIENT)
 public class JEHC
 {
     @Mod.Instance

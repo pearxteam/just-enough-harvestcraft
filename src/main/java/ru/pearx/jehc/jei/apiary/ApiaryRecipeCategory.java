@@ -9,24 +9,25 @@ import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeCategory;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Arrays;
 
 /*
  * Created by mrAppleXZ on 21.05.17 11:51.
  */
+@SideOnly(Side.CLIENT)
 public class ApiaryRecipeCategory implements IRecipeCategory<ApiaryRecipeWrapper>
 {
     public static final String UID = "jehc.apiary";
-    private final String title;
     private final IDrawable bg;
 
     public ApiaryRecipeCategory(IGuiHelper help)
     {
-        title = I18n.translateToLocal("jehc.apiary.name");
         bg = help.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/apiary.png"), 3, 8, 170, 66);
     }
 
@@ -50,7 +51,7 @@ public class ApiaryRecipeCategory implements IRecipeCategory<ApiaryRecipeWrapper
     @Override
     public String getTitle()
     {
-        return title;
+        return I18n.format("jehc.apiary.name");
     }
 
     @Override

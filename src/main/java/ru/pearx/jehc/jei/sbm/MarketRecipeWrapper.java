@@ -4,10 +4,13 @@ import com.pam.harvestcraft.tileentities.MarketData;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 /*
  * Created by mrAppleXZ on 20.05.17 23:45.
  */
+@SideOnly(Side.CLIENT)
 public class MarketRecipeWrapper implements IRecipeWrapper
 {
     private MarketData md;

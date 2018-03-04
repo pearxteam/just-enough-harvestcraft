@@ -9,9 +9,11 @@ import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeCategory;
+import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.text.translation.I18n;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.commons.lang3.reflect.FieldUtils;
 import ru.pearx.jehc.JEHC;
 
@@ -22,15 +24,14 @@ import java.util.Map;
 /*
  * Created by mrAppleXZ on 20.05.17 16:08.
  */
+@SideOnly(Side.CLIENT)
 public class PresserRecipeCategory implements IRecipeCategory<PresserRecipeWrapper>
 {
     private static final String UID = "jehc.presser";
-    private final String title;
     private final IDrawable background;
 
     public PresserRecipeCategory(IGuiHelper helper)
     {
-        title = I18n.translateToLocal("jehc.pressing.name");
         background = helper.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/presser.png"), 3, 8, 170, 66);
     }
 
@@ -61,7 +62,7 @@ public class PresserRecipeCategory implements IRecipeCategory<PresserRecipeWrapp
     @Override
     public String getTitle()
     {
-        return title;
+        return I18n.format("jehc.pressing.name");
     }
 
     @Override

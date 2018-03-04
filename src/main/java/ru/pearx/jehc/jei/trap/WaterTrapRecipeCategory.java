@@ -6,12 +6,15 @@ import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Arrays;
 
 /*
  * Created by mrAppleXZ on 19.07.17 12:34.
  */
+@SideOnly(Side.CLIENT)
 public class WaterTrapRecipeCategory extends TrapRecipeCategory
 {
     private static final String UID = "jehc.water_trap";
