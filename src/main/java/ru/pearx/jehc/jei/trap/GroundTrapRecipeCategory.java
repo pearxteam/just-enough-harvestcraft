@@ -17,17 +17,15 @@ import java.util.Arrays;
 @SideOnly(Side.CLIENT)
 public class GroundTrapRecipeCategory extends TrapRecipeCategory
 {
-    private static final String UID = "jehc.ground_trap";
-
     public GroundTrapRecipeCategory(IGuiHelper helper)
     {
-        super("jehc.ground_trap.name", UID, helper, "ground");
+        super("jehc.ground_trap", "jehc.ground_trap.name", "ground", helper);
     }
 
-    public static void setup(IModRegistry registry)
+    @Override
+    public void setup(IModRegistry registry)
     {
-        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.groundtrapItemBlock), UID);
-        registry.handleRecipes(TrapRecipeWrapper.Ground.class, recipe -> recipe, UID);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.groundtrapItemBlock), getUid());
         ItemStack grain = new ItemStack(ItemRegistry.grainbaitItem);
         ItemStack fruit = new ItemStack(ItemRegistry.fruitbaitItem);
         ItemStack veggie = new ItemStack(ItemRegistry.veggiebaitItem);
@@ -60,6 +58,6 @@ public class GroundTrapRecipeCategory extends TrapRecipeCategory
                 new TrapRecipeWrapper.Ground(veggie, new ItemStack(Items.BONE, 1, 0)),
                 new TrapRecipeWrapper.Ground(veggie, new ItemStack(Items.CHICKEN, 1, 0)),
                 new TrapRecipeWrapper.Ground(veggie, new ItemStack(ItemRegistry.duckrawItem, 1, 0))
-        ), UID);
+        ), getUid());
     }
 }

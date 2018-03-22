@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import ru.pearx.jehc.jei.JehcRecipeCategory;
 
 import java.awt.*;
 
@@ -20,41 +21,11 @@ import java.awt.*;
  * Created by mrAppleXZ on 20.05.17 23:54.
  */
 @SideOnly(Side.CLIENT)
-public abstract class SBMRecipeCategory implements IRecipeCategory<IRecipeWrapper>
+public abstract class SBMRecipeCategory extends JehcRecipeCategory<IRecipeWrapper>
 {
-    private final String uid;
-    private final String unloc;
-    private final IDrawable bg;
-
-    public SBMRecipeCategory(String unloc, String uid, IGuiHelper helper, String png)
+    public SBMRecipeCategory(String uid, String unlocalizedTitle, String png, IGuiHelper helper)
     {
-        this.uid = uid;
-        this.unloc = unloc;
-        bg = helper.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 32, 0, 112, 76);
-    }
-
-    @Override
-    public String getUid()
-    {
-        return uid;
-    }
-
-    @Override
-    public String getTitle()
-    {
-        return I18n.format(unloc);
-    }
-
-    @Override
-    public String getModName()
-    {
-        return Reference.MODID;
-    }
-
-    @Override
-    public IDrawable getBackground()
-    {
-        return bg;
+        super(uid, unlocalizedTitle, helper.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 32, 0, 112, 76));
     }
 
     @Override

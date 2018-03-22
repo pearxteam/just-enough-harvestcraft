@@ -17,22 +17,20 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class ShippingBinRecipeCategory extends SBMRecipeCategory
 {
-    private static final String UID = "jehc.shippingbin";
-
     public ShippingBinRecipeCategory(IGuiHelper helper)
     {
-        super("jehc.shippingbin.name", UID, helper, "shippingbin");
+        super("jehc.shippingbin", "jehc.shippingbin.name", "shippingbin", helper);
     }
 
-    public static void setup(IModRegistry registry)
+    @Override
+    public void setup(IModRegistry registry)
     {
-        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.shippingbinItemBlock), UID);
-        registry.handleRecipes(ShippingBinRecipeWrapper.class, recipe -> recipe, UID);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.shippingbinItemBlock), getUid());
         List<ShippingBinRecipeWrapper> rec = new ArrayList<>();
         for(int i = 0; i < ShippingBinItems.getSize(); i++)
         {
             rec.add(new ShippingBinRecipeWrapper(ShippingBinItems.getData(i)));
         }
-        registry.addRecipes(rec, UID);
+        registry.addRecipes(rec, getUid());
     }
 }

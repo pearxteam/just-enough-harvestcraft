@@ -1,5 +1,7 @@
 package ru.pearx.jehc;
 
+import mezz.jei.api.IGuiHelper;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ModMetadata;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

@@ -17,17 +17,15 @@ import java.util.Arrays;
 @SideOnly(Side.CLIENT)
 public class WaterTrapRecipeCategory extends TrapRecipeCategory
 {
-    private static final String UID = "jehc.water_trap";
-
     public WaterTrapRecipeCategory(IGuiHelper helper)
     {
-        super("jehc.water_trap.name", UID, helper, "water");
+        super("jehc.water_trap", "jehc.water_trap.name", "water", helper);
     }
 
-    public static void setup(IModRegistry registry)
+    @Override
+    public void setup(IModRegistry registry)
     {
-        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.watertrapItemBlock), UID);
-        registry.handleRecipes(TrapRecipeWrapper.Water.class, recipe -> recipe, UID);
+        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.watertrapItemBlock), getUid());
         ItemStack fishBait = new ItemStack(ItemRegistry.fishtrapbaitItem);
         registry.addRecipes(Arrays.asList(
                 new TrapRecipeWrapper.Water(fishBait, new ItemStack(Items.FISH, 1, 0)),
@@ -62,7 +60,8 @@ public class WaterTrapRecipeCategory extends TrapRecipeCategory
                 new TrapRecipeWrapper.Water(fishBait, new ItemStack(ItemRegistry.greenheartfishItem, 1, 0)),
                 new TrapRecipeWrapper.Water(fishBait, new ItemStack(ItemRegistry.duckrawItem, 1, 0)),
                 new TrapRecipeWrapper.Water(fishBait, new ItemStack(ItemRegistry.musselrawItem, 1, 0)),
-                new TrapRecipeWrapper.Water(fishBait, new ItemStack(ItemRegistry.sardinerawItem, 1, 0))
-        ), UID);
+                new TrapRecipeWrapper.Water(fishBait, new ItemStack(ItemRegistry.sardinerawItem, 1, 0)),
+                new TrapRecipeWrapper.Water(fishBait, new ItemStack(ItemRegistry.oysterrawItem, 1, 0))
+        ), getUid());
     }
 }

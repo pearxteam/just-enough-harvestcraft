@@ -1,24 +1,21 @@
-package ru.pearx.jehc.jei.presser;
+package ru.pearx.jehc.jei.machine;
 
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Created by mrAppleXZ on 20.05.17 16:07.
+ * Created by mrAppleXZ on 22.03.18 20:58.
  */
-@SideOnly(Side.CLIENT)
-public class PresserRecipeWrapper implements IRecipeWrapper
+public class MachineRecipeWrapper implements IRecipeWrapper
 {
     private final ItemStack in;
     private final ItemStack[] out;
 
-    public PresserRecipeWrapper(ItemStack in, ItemStack[] out)
+    public MachineRecipeWrapper(ItemStack in, ItemStack[] out)
     {
         this.in = in;
         this.out = out;
@@ -36,5 +33,4 @@ public class PresserRecipeWrapper implements IRecipeWrapper
         }
         ingredients.setOutputs(ItemStack.class, outputs);
     }
-
 }

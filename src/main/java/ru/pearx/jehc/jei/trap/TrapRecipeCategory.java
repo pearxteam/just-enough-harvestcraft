@@ -11,46 +11,17 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import ru.pearx.jehc.jei.JehcRecipeCategory;
 
 /*
  * Created by mrAppleXZ on 19.07.17 11:06.
  */
 @SideOnly(Side.CLIENT)
-public abstract class TrapRecipeCategory implements IRecipeCategory<TrapRecipeWrapper>
+public abstract class TrapRecipeCategory extends JehcRecipeCategory<TrapRecipeWrapper>
 {
-    private final String uid;
-    private final String unloc;
-    private final IDrawable bg;
-
-    public TrapRecipeCategory(String unloc, String uid, IGuiHelper helper, String png)
+    public TrapRecipeCategory(String uid, String unlocalizedTitle, String png, IGuiHelper help)
     {
-        this.uid = uid;
-        this.unloc = unloc;
-        bg = helper.createDrawable(new ResourceLocation("jehc", "textures/gui/" + png + "_trap_small.png"), 0, 0, 81, 29, 81, 29);
-    }
-
-    @Override
-    public String getUid()
-    {
-        return uid;
-    }
-
-    @Override
-    public String getTitle()
-    {
-        return I18n.format(unloc);
-    }
-
-    @Override
-    public String getModName()
-    {
-        return Reference.NAME;
-    }
-
-    @Override
-    public IDrawable getBackground()
-    {
-        return bg;
+        super(uid, unlocalizedTitle, help.createDrawable(new ResourceLocation("jehc", "textures/gui/" + png + "_trap_small.png"), 0, 0, 81, 29, 81, 29));
     }
 
     @Override

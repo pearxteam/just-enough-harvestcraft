@@ -1,5 +1,6 @@
 package ru.pearx.jehc.jei;
 
+import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.JEIPlugin;
@@ -7,11 +8,15 @@ import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.pearx.jehc.jei.apiary.ApiaryRecipeCategory;
-import ru.pearx.jehc.jei.presser.PresserRecipeCategory;
+import ru.pearx.jehc.jei.machine.GrinderRecipeCategory;
+import ru.pearx.jehc.jei.machine.PresserRecipeCategory;
 import ru.pearx.jehc.jei.sbm.MarketRecipeCategory;
 import ru.pearx.jehc.jei.sbm.ShippingBinRecipeCategory;
 import ru.pearx.jehc.jei.trap.GroundTrapRecipeCategory;
 import ru.pearx.jehc.jei.trap.WaterTrapRecipeCategory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * Created by mrAppleXZ on 20.05.17 16:23.
@@ -20,25 +25,29 @@ import ru.pearx.jehc.jei.trap.WaterTrapRecipeCategory;
 @SideOnly(Side.CLIENT)
 public class JEHCPlugin implements IModPlugin
 {
+    private List<JehcRecipeCategory> cats = new ArrayList<>();
+
     @Override
     public void register(IModRegistry registry)
     {
-        PresserRecipeCategory.setup(registry);
-        ShippingBinRecipeCategory.setup(registry);
-        MarketRecipeCategory.setup(registry);
-        ApiaryRecipeCategory.setup(registry);
-        GroundTrapRecipeCategory.setup(registry);
-        WaterTrapRecipeCategory.setup(registry);
+        for(JehcRecipeCategory cat : cats)
+            cat.setup(registry);
     }
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration reg)
     {
-        reg.addRecipeCategories(new PresserRecipeCategory(reg.getJeiHelpers().getGuiHelper()));
-        reg.addRecipeCategories(new ShippingBinRecipeCategory(reg.getJeiHelpers().getGuiHelper()));
-        reg.addRecipeCategories(new MarketRecipeCategory(reg.getJeiHelpers().getGuiHelper()));
-        reg.addRecipeCategories(new ApiaryRecipeCategory(reg.getJeiHelpers().getGuiHelper()));
-        reg.addRecipeCategories(new GroundTrapRecipeCategory(reg.getJeiHelpers().getGuiHelper()));
-        reg.addRecipeCategories(new WaterTrapRecipeCategory(reg.getJeiHelpers().getGuiHelper()));
+        IGuiHelper h = reg.getJeiHelpers().getGuiHelper();
+        cats.add(new PresserRecipeCategory(h));
+        cats.add(new ShippingBinRecipeCategory(h));
+        cats.add(new MarketRecipeCategory(h));
+        cats.add(new ApiaryRecipeCategory(h));
+        cats.add(new GroundTrapRecipeCategory(h));
+        cats.add(new WaterTrapRecipeCategory(h));
+        cats.add(new GrinderRecipeCategory(h));
+        for(JehcRecipeCategory cat : cats)
+        {
+            reg.addRecipeCategories(cat);
+        }
     }
 }
