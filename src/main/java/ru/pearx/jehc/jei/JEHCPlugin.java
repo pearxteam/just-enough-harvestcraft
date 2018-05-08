@@ -25,7 +25,7 @@ import java.util.List;
 @SideOnly(Side.CLIENT)
 public class JEHCPlugin implements IModPlugin
 {
-    private List<JehcRecipeCategory> cats = new ArrayList<>();
+    private List<JehcRecipeCategory> cats;
 
     @Override
     public void register(IModRegistry registry)
@@ -37,6 +37,7 @@ public class JEHCPlugin implements IModPlugin
     @Override
     public void registerCategories(IRecipeCategoryRegistration reg)
     {
+        cats = new ArrayList<>();
         IGuiHelper h = reg.getJeiHelpers().getGuiHelper();
         cats.add(new PresserRecipeCategory(h));
         cats.add(new ShippingBinRecipeCategory(h));
