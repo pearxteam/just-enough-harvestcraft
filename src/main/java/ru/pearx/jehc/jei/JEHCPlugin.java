@@ -10,6 +10,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.pearx.jehc.jei.apiary.ApiaryRecipeCategory;
 import ru.pearx.jehc.jei.machine.GrinderRecipeCategory;
 import ru.pearx.jehc.jei.machine.PresserRecipeCategory;
+import ru.pearx.jehc.jei.machine.WaterFilterCategory;
 import ru.pearx.jehc.jei.sbm.MarketRecipeCategory;
 import ru.pearx.jehc.jei.sbm.ShippingBinRecipeCategory;
 import ru.pearx.jehc.jei.trap.GroundTrapRecipeCategory;
@@ -46,6 +47,7 @@ public class JEHCPlugin implements IModPlugin
         cats.add(new GroundTrapRecipeCategory(h));
         cats.add(new WaterTrapRecipeCategory(h));
         cats.add(new GrinderRecipeCategory(h));
+        cats.add(new WaterFilterCategory(h));
         for(JehcRecipeCategory cat : cats)
         {
             reg.addRecipeCategories(cat);
