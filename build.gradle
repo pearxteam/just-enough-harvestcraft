@@ -11,14 +11,11 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle.forge'
 
 repositories {
-    maven {
-        name "progwml"
-        url "http://dvs1.progwml6.com/files/maven"
-    }
+    maven { url = "http://dvs1.progwml6.com/files/maven" }
 }
 
 version = "${mod_version}.${build_number}"
-group= "ru.pearx.jehc"
+group = "ru.pearx.jehc"
 archivesBaseName = "JEHC-${mc_version}"
 
 sourceCompatibility = targetCompatibility = "1.8"
