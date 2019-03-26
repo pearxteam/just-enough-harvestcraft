@@ -14,7 +14,7 @@ repositories {
     maven { url = "http://dvs1.progwml6.com/files/maven" }
 }
 
-version = "${mod_version}.${build_number}"
+version = "${mod_version}"
 group = "ru.pearx.jehc"
 archivesBaseName = "JEHC-${mc_version}"
 
