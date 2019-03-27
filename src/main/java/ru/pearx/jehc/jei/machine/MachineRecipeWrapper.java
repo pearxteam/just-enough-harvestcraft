@@ -1,6 +1,7 @@
 package ru.pearx.jehc.jei.machine;
 
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 
@@ -24,13 +25,13 @@ public class MachineRecipeWrapper implements IRecipeWrapper
     @Override
     public void getIngredients(IIngredients ingredients)
     {
-        ingredients.setInput(ItemStack.class, in);
+        ingredients.setInput(VanillaTypes.ITEM, in);
         List<ItemStack> outputs = new ArrayList<>();
         for (ItemStack st : out)
         {
             if(st != null)
                 outputs.add(st);
         }
-        ingredients.setOutputs(ItemStack.class, outputs);
+        ingredients.setOutputs(VanillaTypes.ITEM, outputs);
     }
 }

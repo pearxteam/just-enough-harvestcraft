@@ -1,6 +1,7 @@
 package ru.pearx.jehc.jei.apiary;
 
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.ItemStack;
@@ -28,8 +29,8 @@ public class ApiaryRecipeWrapper implements IRecipeWrapper
     @Override
     public void getIngredients(IIngredients ingredients)
     {
-        ingredients.setInput(ItemStack.class, in);
-        ingredients.setOutput(ItemStack.class, out);
+        ingredients.setInput(VanillaTypes.ITEM, in);
+        ingredients.setOutput(VanillaTypes.ITEM, out);
     }
 
     @Override

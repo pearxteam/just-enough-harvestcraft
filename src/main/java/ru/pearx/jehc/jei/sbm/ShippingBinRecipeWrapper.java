@@ -2,6 +2,7 @@ package ru.pearx.jehc.jei.sbm;
 
 import com.pam.harvestcraft.tileentities.ShippingBinData;
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
@@ -25,7 +26,7 @@ public class ShippingBinRecipeWrapper implements IRecipeWrapper
     {
         ItemStack pr = sbd.getCurrency().copy();
         pr.setCount(sbd.getPrice());
-        ingredients.setInput(ItemStack.class, pr);
-        ingredients.setOutput(ItemStack.class, sbd.getItem());
+        ingredients.setInput(VanillaTypes.ITEM, pr);
+        ingredients.setOutput(VanillaTypes.ITEM, sbd.getItem());
     }
 }

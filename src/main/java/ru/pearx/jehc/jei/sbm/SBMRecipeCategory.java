@@ -3,6 +3,7 @@ package ru.pearx.jehc.jei.sbm;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
@@ -20,16 +21,16 @@ public abstract class SBMRecipeCategory extends JehcRecipeCategory<IRecipeWrappe
 {
     public SBMRecipeCategory(String uid, String unlocalizedTitle, String png, IGuiHelper helper)
     {
-        super(uid, unlocalizedTitle, helper.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 32, 0, 112, 76));
+        super(uid, unlocalizedTitle, helper.drawableBuilder(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 32, 0, 112, 76).build());
     }
 
     @Override
     public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients)
     {
         recipeLayout.getItemStacks().init(0, false, 40, 25);
-        recipeLayout.getItemStacks().set(0, ingredients.getOutputs(ItemStack.class).get(0));
+        recipeLayout.getItemStacks().set(0, ingredients.getOutputs(VanillaTypes.ITEM).get(0));
         recipeLayout.getItemStacks().init(1, true, 80, 47);
-        recipeLayout.getItemStacks().set(1, ingredients.getInputs(ItemStack.class).get(0));
+        recipeLayout.getItemStacks().set(1, ingredients.getInputs(VanillaTypes.ITEM).get(0));
     }
 
     @Override

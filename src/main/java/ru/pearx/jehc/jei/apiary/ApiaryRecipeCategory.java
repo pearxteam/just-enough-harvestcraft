@@ -6,6 +6,7 @@ import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.ingredients.VanillaTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
@@ -22,7 +23,7 @@ public class ApiaryRecipeCategory extends JehcRecipeCategory<ApiaryRecipeWrapper
 {
     public ApiaryRecipeCategory(IGuiHelper help)
     {
-        super("jehc.apiary", "jehc.apiary.name", help.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/apiary.png"), 3, 8, 170, 66));
+        super("jehc.apiary", "jehc.apiary.name", help.drawableBuilder(new ResourceLocation("harvestcraft", "textures/gui/apiary.png"), 3, 8, 170, 66).build());
     }
 
     @Override
@@ -40,8 +41,8 @@ public class ApiaryRecipeCategory extends JehcRecipeCategory<ApiaryRecipeWrapper
     public void setRecipe(IRecipeLayout recipeLayout, ApiaryRecipeWrapper recipeWrapper, IIngredients ingredients)
     {
         recipeLayout.getItemStacks().init(0, true, 22, 26);
-        recipeLayout.getItemStacks().set(0, ingredients.getInputs(ItemStack.class).get(0));
+        recipeLayout.getItemStacks().set(0, ingredients.getInputs(VanillaTypes.ITEM).get(0));
         recipeLayout.getItemStacks().init(1, false, 58, 8);
-        recipeLayout.getItemStacks().set(1, ingredients.getOutputs(ItemStack.class).get(0));
+        recipeLayout.getItemStacks().set(1, ingredients.getOutputs(VanillaTypes.ITEM).get(0));
     }
 }

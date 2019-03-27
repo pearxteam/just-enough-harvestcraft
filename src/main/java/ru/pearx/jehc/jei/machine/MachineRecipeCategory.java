@@ -4,6 +4,7 @@ import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
+import mezz.jei.api.ingredients.VanillaTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.lang3.reflect.FieldUtils;
@@ -24,11 +25,12 @@ public class MachineRecipeCategory extends JehcRecipeCategory<MachineRecipeWrapp
 
     public MachineRecipeCategory(String uid, String unlocalizedTitle, String png, Class recClass, String recField, IGuiHelper helper)
     {
-        super(uid, unlocalizedTitle, helper.createDrawable(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 3, 8, 170, 66));
+        super(uid, unlocalizedTitle, helper.drawableBuilder(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 3, 8, 170, 66).build());
         this.recClass = recClass;
         this.recField = recField;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void setup(IModRegistry registry)
     {
@@ -50,13 +52,13 @@ public class MachineRecipeCategory extends JehcRecipeCategory<MachineRecipeWrapp
     public void setRecipe(IRecipeLayout recipeLayout, MachineRecipeWrapper recipeWrapper, IIngredients ingredients)
     {
         recipeLayout.getItemStacks().init(0, true, 76, 14);
-        recipeLayout.getItemStacks().set(0, ingredients.getInputs(ItemStack.class).get(0));
+        recipeLayout.getItemStacks().set(0, ingredients.getInputs(VanillaTypes.ITEM).get(0));
         recipeLayout.getItemStacks().init(1, false, 58, 45);
-        recipeLayout.getItemStacks().set(1, ingredients.getOutputs(ItemStack.class).get(0));
-        if(ingredients.getOutputs(ItemStack.class).size() == 2)
+        recipeLayout.getItemStacks().set(1, ingredients.getOutputs(VanillaTypes.ITEM).get(0));
+        if(ingredients.getOutputs(VanillaTypes.ITEM).size() == 2)
         {
             recipeLayout.getItemStacks().init(2, false, 94, 45);
-            recipeLayout.getItemStacks().set(2, ingredients.getOutputs(ItemStack.class).get(1));
+            recipeLayout.getItemStacks().set(2, ingredients.getOutputs(VanillaTypes.ITEM).get(1));
         }
     }
 }
