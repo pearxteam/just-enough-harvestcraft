@@ -23,7 +23,7 @@ pipeline {
                 CURSEFORGE_API_KEY = credentials('curseforge-api-key')
             }
             steps {
-                sh "./gradlew publishRelease -PpearxRepoUser=${PEARX_REPO_USR} -PpearxRepoPassword=${PEARX_REPO_PSW} -PcurseforgeApiKey=${CURSEFORGE_API_KEY}"
+                sh "./gradlew publishRelease -PpearxRepoUsername=${PEARX_REPO_USR} -PpearxRepoPassword=${PEARX_REPO_PSW} -PcurseforgeApiKey=${CURSEFORGE_API_KEY}"
             }
         }
     }
