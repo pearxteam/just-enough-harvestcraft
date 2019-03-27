@@ -69,6 +69,18 @@ configure<PublishingExtension> {
     }
 }
 
+tasks {
+    register("publishDevelop") {
+        group = "publishing"
+        dependsOn(withType<PublishToMavenRepository>().matching { it.repository == the<PublishingExtension>().repositories["develop"] })
+    }
+    register("publishRelease") {
+        group = "publishing"
+        dependsOn(withType<PublishToMavenRepository>().matching { it.repository == the<PublishingExtension>().repositories["release"] })
+        //todo depend on curseforge publishing
+    }
+}
+
 repositories {
     maven { url = uri("http://dvs1.progwml6.com/files/maven") }
 }
