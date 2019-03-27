@@ -12,7 +12,7 @@ pipeline {
                 PEARX_REPO = credentials('pearx-repo-user')
             }
             steps {
-                sh "./gradlew publishDevelop -PpearxRepoUser=${PEARX_REPO_USR} -PpearxRepoPassword=${PEARX_REPO_PSW}"
+                sh "./gradlew publishDevelop -PpearxRepoUsername=${PEARX_REPO_USR} -PpearxRepoPassword=${PEARX_REPO_PSW}"
             }
         }
 
