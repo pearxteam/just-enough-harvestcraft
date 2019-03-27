@@ -24,7 +24,7 @@ import java.util.List;
  */
 @JEIPlugin
 @SideOnly(Side.CLIENT)
-public class JEHCPlugin implements IModPlugin
+public class JehcPlugin implements IModPlugin
 {
     private List<JehcRecipeCategory> cats;
 

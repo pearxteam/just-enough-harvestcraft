@@ -12,12 +12,12 @@ import java.util.Collections;
 /*
  * Created by mrAppleXZ on 20.05.17 15:54.
  */
-@Mod(name = JEHC.NAME, modid = JEHC.MODID, version = JEHC.VERSION, acceptedMinecraftVersions = JEHC.ACCEPTED_MINECRAFT_VERSIONS, dependencies = JEHC.DEPENDENCIES, clientSideOnly = true)
+@Mod(name = Jehc.NAME, modid = Jehc.MODID, version = Jehc.VERSION, acceptedMinecraftVersions = Jehc.ACCEPTED_MINECRAFT_VERSIONS, dependencies = Jehc.DEPENDENCIES, clientSideOnly = true)
 @SideOnly(Side.CLIENT)
-public class JEHC
+public class Jehc
 {
     @Mod.Instance
-    public static JEHC INSTANCE;
+    public static Jehc INSTANCE;
 
 
     public static final String NAME = "Just Enough HarvestCraft";

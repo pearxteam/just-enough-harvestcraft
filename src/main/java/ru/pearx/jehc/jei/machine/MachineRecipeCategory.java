@@ -7,7 +7,7 @@ import mezz.jei.api.ingredients.IIngredients;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.lang3.reflect.FieldUtils;
-import ru.pearx.jehc.JEHC;
+import ru.pearx.jehc.Jehc;
 import ru.pearx.jehc.jei.JehcRecipeCategory;
 
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ public class MachineRecipeCategory extends JehcRecipeCategory<MachineRecipeWrapp
             }
         } catch (IllegalAccessException e)
         {
-            JEHC.INSTANCE.getLog().error("An IllegalAccessException occurred while setting up the " + recClass.getSimpleName() + " recipes.", e);
+            Jehc.INSTANCE.getLog().error("An IllegalAccessException occurred while setting up the " + recClass.getSimpleName() + " recipes.", e);
         }
         registry.addRecipes(rec, getUid());
     }
