@@ -23,12 +23,21 @@ version = modVersion
 group = "ru.pearx.jehc"
 description = modDescription
 
-configure<BasePluginConvention> {
+base {
     archivesBaseName = "jehc-$minecraftVersion"
 }
 
-configure<JavaPluginConvention> {
+java {
     sourceCompatibility = JavaVersion.toVersion(jdkVersion)
+}
+
+repositories {
+    maven { url = uri("http://dvs1.progwml6.com/files/maven") }
+}
+
+dependencies {
+    "deobfCompile"("mezz.jei:jei_$jeiMcVersion:$jeiVersion:api")
+    "runtime"("mezz.jei:jei_$jeiMcVersion:$jeiVersion")
 }
 
 configure<UserBaseExtension> {
@@ -42,7 +51,7 @@ configure<UserBaseExtension> {
     replaceIn("JEHC.java")
 }
 
-configure<PublishingExtension> {
+publishing {
     repositories {
         fun AuthenticationSupported.pearxCredentials() {
             credentials {
@@ -72,20 +81,11 @@ configure<PublishingExtension> {
 tasks {
     register("publishDevelop") {
         group = "publishing"
-        dependsOn(withType<PublishToMavenRepository>().matching { it.repository == the<PublishingExtension>().repositories["develop"] })
+        dependsOn(withType<PublishToMavenRepository>().matching { it.repository == publishing.repositories["develop"] })
     }
     register("publishRelease") {
         group = "publishing"
-        dependsOn(withType<PublishToMavenRepository>().matching { it.repository == the<PublishingExtension>().repositories["release"] })
+        dependsOn(withType<PublishToMavenRepository>().matching { it.repository == publishing.repositories["release"] })
         //todo depend on curseforge publishing
     }
-}
-
-repositories {
-    maven { url = uri("http://dvs1.progwml6.com/files/maven") }
-}
-
-dependencies {
-    "deobfCompile"("mezz.jei:jei_$jeiMcVersion:$jeiVersion:api")
-    "runtime"("mezz.jei:jei_$jeiMcVersion:$jeiVersion")
 }
