@@ -1,3 +1,4 @@
+
 import com.matthewprenger.cursegradle.CurseExtension
 import com.matthewprenger.cursegradle.CurseProject
 import net.minecraftforge.gradle.user.UserBaseExtension
@@ -29,8 +30,9 @@ val curseforgeProjectId: String by project
 val pearxRepoUsername: String? by project
 val pearxRepoPassword: String? by project
 val curseforgeApiKey: String? by project
+val devBuildNumber: String? by project
 
-version = modVersion
+version = if(devBuildNumber != null) "$modVersion-dev-$devBuildNumber" else modVersion
 group = "ru.pearx.jehc"
 description = modDescription
 
@@ -62,7 +64,7 @@ configure<CurseExtension> {
     apiKey = curseforgeApiKey ?: "0"
     project(closureOf<CurseProject> {
         id = curseforgeProjectId
-        releaseType = modReleaseType
+        releaseType = "release"
         changelog = modChangelog
     })
 }
