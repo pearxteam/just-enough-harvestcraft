@@ -1,6 +1,8 @@
+@Library('ci-skip') _
 pipeline {
     agent any
     stages {
+        stage('prepare') { steps { ciSkip 'check' } }
         stage('build') {
             steps {
                 sh './gradlew clean setupCiWorkspace build'
@@ -27,4 +29,5 @@ pipeline {
             }
         }
     }
+    post { always { ciSkip 'postProcess' } }
 }
