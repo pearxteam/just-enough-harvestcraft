@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh './gradlew setupCiWorkspace build'
+                sh './gradlew clean setupCiWorkspace build'
             }
         }
         stage('deploy-develop') {
