@@ -12,8 +12,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import ru.pearx.jehc.jei.JehcRecipeCategory;
 
-import java.awt.*;
-
 /*
  * Created by mrAppleXZ on 20.05.17 23:54.
  */
@@ -40,6 +38,6 @@ public abstract class SBMRecipeCategory extends JehcRecipeCategory<IRecipeWrappe
     {
         String s = I18n.format("jehc.price");
         int width = minecraft.fontRenderer.getStringWidth(s);
-        minecraft.fontRenderer.drawString(s, 67 + ((37 - width) / 2), 25 + ((18 - minecraft.fontRenderer.FONT_HEIGHT) / 2), Color.BLACK.getRGB());
+        minecraft.fontRenderer.drawString(s, 67 + ((37 - width) / 2), 25 + ((18 - minecraft.fontRenderer.FONT_HEIGHT) / 2), 0);
     }
 }

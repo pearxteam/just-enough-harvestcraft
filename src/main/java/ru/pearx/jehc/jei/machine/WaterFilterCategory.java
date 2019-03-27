@@ -1,7 +1,6 @@
 package ru.pearx.jehc.jei.machine;
 
 import com.pam.harvestcraft.blocks.BlockRegistry;
-import com.pam.harvestcraft.item.ItemRegistry;
 import com.pam.harvestcraft.item.WaterFilterRecipes;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;

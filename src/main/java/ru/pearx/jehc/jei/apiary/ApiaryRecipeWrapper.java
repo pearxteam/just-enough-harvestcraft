@@ -7,7 +7,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import java.awt.*;
 
 /*
  * Created by mrAppleXZ on 21.05.17 11:41.
@@ -39,6 +38,6 @@ public class ApiaryRecipeWrapper implements IRecipeWrapper
     {
         String s = percents + "%";
         int w = minecraft.fontRenderer.getStringWidth(s);
-        minecraft.fontRenderer.drawString(s, 6 + ((50 - w) / 2), 48 + ((11 - minecraft.fontRenderer.FONT_HEIGHT) / 2), Color.BLACK.getRGB());
+        minecraft.fontRenderer.drawString(s, 6 + ((50 - w) / 2), 48 + ((11 - minecraft.fontRenderer.FONT_HEIGHT) / 2), 0);
     }
 }

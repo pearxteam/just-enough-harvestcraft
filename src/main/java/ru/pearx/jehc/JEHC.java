@@ -7,7 +7,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Arrays;
 import java.util.Collections;
 
 /*

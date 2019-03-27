@@ -10,7 +10,7 @@ pluginManagement {
 
     resolutionStrategy {
         eachPlugin {
-            if(requested.id.id == "net.minecraftforge.gradle.forge")
+            if(requested.id.id.startsWith("net.minecraftforge.gradle"))
                 useModule("net.minecraftforge.gradle:ForgeGradle:$forgeGradleVersion")
         }
     }
