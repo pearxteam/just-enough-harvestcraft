@@ -1,8 +1,8 @@
-import net.minecraftforge.gradle.common.BaseExtension
 import net.minecraftforge.gradle.user.UserBaseExtension
 
 plugins {
     id("net.minecraftforge.gradle.forge")
+    `maven-publish`
 }
 
 val modVersion: String by project
@@ -40,6 +40,33 @@ configure<UserBaseExtension> {
     replace("ACCEPTED_MINECRAFT_VERSIONS = \"\"", "ACCEPTED_MINECRAFT_VERSIONS = \"$modAcceptedMcVersions\"")
     replace("DEPENDENCIES = \"\"", "DEPENDENCIES = \"$modDependencies\"")
     replaceIn("JEHC.java")
+}
+
+configure<PublishingExtension> {
+    repositories {
+        fun AuthenticationSupported.pearxCredentials() {
+            credentials {
+                username = properties["pearxRepoUsername"].toString()
+                password = properties["pearxRepoPassword"].toString()
+            }
+        }
+        maven {
+            pearxCredentials()
+            name = "develop"
+            url = uri("https://repo.pearx.ru/maven2/develop/")
+        }
+        maven {
+            pearxCredentials()
+            name = "release"
+            url = uri("https://repo.pearx.ru/maven2/release/")
+        }
+    }
+
+    publications {
+        register<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
 }
 
 repositories {
