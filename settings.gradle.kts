@@ -1,6 +1,7 @@
 val forgeGradleVersion: String by settings
 val curseGradleVersion: String by settings
 val minecraftVersion: String by settings
+val githubReleaseVersion: String by settings
 
 rootProject.name = "jehc-$minecraftVersion"
 
@@ -16,6 +17,8 @@ pluginManagement {
                 useModule("net.minecraftforge.gradle:ForgeGradle:$forgeGradleVersion")
             if(requested.id.id.startsWith("com.matthewprenger.cursegradle"))
                 useVersion(curseGradleVersion)
+            if(requested.id.id.startsWith("com.github.breadmoirai.github-release"))
+                useVersion(githubReleaseVersion)
         }
     }
 }

@@ -23,9 +23,10 @@ pipeline {
             environment {
                 PEARX_REPO = credentials('pearx-repo-user')
                 CURSEFORGE_API_KEY = credentials('curseforge-api-key')
+                GITHUB_ACCESS_TOKEN = credentials('github-release-token')
             }
             steps {
-                sh "./gradlew publishRelease -PpearxRepoUsername=${PEARX_REPO_USR} -PpearxRepoPassword=${PEARX_REPO_PSW} -PcurseforgeApiKey=${CURSEFORGE_API_KEY}"
+                sh "./gradlew publishRelease -PpearxRepoUsername=${PEARX_REPO_USR} -PpearxRepoPassword=${PEARX_REPO_PSW} -PcurseforgeApiKey=${CURSEFORGE_API_KEY} -PgithubAccessToken=${GITHUB_ACCESS_TOKEN}"
             }
         }
     }

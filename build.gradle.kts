@@ -1,4 +1,5 @@
 
+import com.github.breadmoirai.githubreleaseplugin.GithubReleaseExtension
 import com.matthewprenger.cursegradle.CurseExtension
 import com.matthewprenger.cursegradle.CurseProject
 import net.minecraftforge.gradle.user.UserBaseExtension
@@ -6,6 +7,7 @@ import net.minecraftforge.gradle.user.UserBaseExtension
 plugins {
     id("net.minecraftforge.gradle.forge")
     id("com.matthewprenger.cursegradle")
+    id("com.github.breadmoirai.github-release")
     `maven-publish`
 }
 
@@ -27,10 +29,13 @@ val jdkVersion: String by project
 
 val curseforgeProjectId: String by project
 
+val githubReleaseBranch: String by project
+
 val pearxRepoUsername: String? by project
 val pearxRepoPassword: String? by project
 val curseforgeApiKey: String? by project
 val devBuildNumber: String? by project
+val githubAccessToken: String? by project
 
 version = if(devBuildNumber != null) "$modVersion-dev-$devBuildNumber" else modVersion
 group = "ru.pearx.jehc"
@@ -60,15 +65,6 @@ configure<UserBaseExtension> {
     replaceIn("Jehc.java")
 }
 
-configure<CurseExtension> {
-    apiKey = curseforgeApiKey ?: "0"
-    project(closureOf<CurseProject> {
-        id = curseforgeProjectId
-        releaseType = "release"
-        changelog = modChangelog
-    })
-}
-
 publishing {
     repositories {
         fun AuthenticationSupported.pearxCredentials() {
@@ -96,6 +92,24 @@ publishing {
     }
 }
 
+configure<CurseExtension> {
+    apiKey = curseforgeApiKey ?: "0"
+    project(closureOf<CurseProject> {
+        id = curseforgeProjectId
+        releaseType = "release"
+        changelog = modChangelog
+    })
+}
+
+configure<GithubReleaseExtension> {
+    setToken(githubAccessToken)
+    setOwner("pearxteam")
+    setRepo("jehc")
+    setTargetCommitish(githubReleaseBranch)
+    setBody(modChangelog)
+    setReleaseAssets((publishing.publications["maven"] as MavenPublication).artifacts.map { it.file })
+}
+
 tasks {
     register("publishDevelop") {
         group = "publishing"
@@ -105,5 +119,6 @@ tasks {
         group = "publishing"
         dependsOn(withType<PublishToMavenRepository>().matching { it.repository == publishing.repositories["release"] })
         dependsOn(named("curseforge"))
+        dependsOn(named("githubRelease"))
     }
 }
