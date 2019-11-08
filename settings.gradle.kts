@@ -2,6 +2,19 @@ val forgeGradleVersion: String by settings
 val curseGradleVersion: String by settings
 val minecraftVersion: String by settings
 val githubReleaseVersion: String by settings
+val curseMavenVersion: String by settings
+
+
+val moduleMappings = mapOf(
+    "net.minecraftforge.gradle.forge" to "net.minecraftforge.gradle:ForgeGradle"
+)
+
+val versionMappings = mapOf(
+    "net.minecraftforge.gradle.forge" to forgeGradleVersion,
+    "com.matthewprenger.cursegradle" to curseGradleVersion,
+    "com.github.breadmoirai.github-release" to githubReleaseVersion,
+    "com.wynprice.cursemaven" to curseMavenVersion
+)
 
 rootProject.name = "jehc-$minecraftVersion"
 
@@ -13,12 +26,17 @@ pluginManagement {
 
     resolutionStrategy {
         eachPlugin {
-            if(requested.id.id.startsWith("net.minecraftforge.gradle"))
-                useModule("net.minecraftforge.gradle:ForgeGradle:$forgeGradleVersion")
-            if(requested.id.id.startsWith("com.matthewprenger.cursegradle"))
-                useVersion(curseGradleVersion)
-            if(requested.id.id.startsWith("com.github.breadmoirai.github-release"))
-                useVersion(githubReleaseVersion)
+            val id = requested.id.id
+            for((requested, target) in moduleMappings) {
+                if(id == requested) {
+                    useModule("$target:${versionMappings[requested]}")
+                    return@eachPlugin
+                }
+            }
+            for((mappingId, mappingVersion) in versionMappings) {
+                if(id == mappingId)
+                    useVersion(mappingVersion)
+            }
         }
     }
 }

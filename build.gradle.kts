@@ -8,6 +8,7 @@ plugins {
     id("net.minecraftforge.gradle.forge")
     id("com.matthewprenger.cursegradle")
     id("com.github.breadmoirai.github-release")
+    id("com.wynprice.cursemaven")
     `maven-publish`
 }
 
@@ -24,6 +25,7 @@ val mcpMappingsVersion: String by project
 
 val jeiVersion: String by project
 val jeiMcVersion: String by project
+val harvestCraftFileId: String by project
 
 val jdkVersion: String by project
 
@@ -52,6 +54,7 @@ repositories {
 dependencies {
     "deobfCompile"("mezz.jei:jei_$jeiMcVersion:$jeiVersion:api")
     "runtime"("mezz.jei:jei_$jeiMcVersion:$jeiVersion")
+    "compile"("curse.maven:pams-harvestcraft:$harvestCraftFileId")
 }
 
 configure<UserBaseExtension> {
