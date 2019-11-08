@@ -19,13 +19,12 @@ public class WaterTrapRecipeCategory extends TrapRecipeCategory
 {
     public WaterTrapRecipeCategory(IGuiHelper helper)
     {
-        super("jehc.water_trap", "jehc.water_trap.name", "water", helper);
+        super("jehc.water_trap", new ItemStack(BlockRegistry.watertrapItemBlock), "water", helper);
     }
 
     @Override
-    public void setup(IModRegistry registry)
+    public void setupRecipes(IModRegistry registry)
     {
-        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.watertrapItemBlock), getUid());
         ItemStack fishBait = new ItemStack(ItemRegistry.fishtrapbaitItem);
         registry.addRecipes(Arrays.asList(
                 new TrapRecipeWrapper.Water(fishBait, new ItemStack(Items.FISH, 1, 0)),

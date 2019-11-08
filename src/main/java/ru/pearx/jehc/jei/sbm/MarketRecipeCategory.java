@@ -19,13 +19,12 @@ public class MarketRecipeCategory extends SBMRecipeCategory
 {
     public MarketRecipeCategory(IGuiHelper helper)
     {
-        super("jehc.market", "jehc.market.name", "market", helper);
+        super("jehc.market", new ItemStack(BlockRegistry.marketItemBlock), "market", helper);
     }
 
     @Override
-    public void setup(IModRegistry registry)
+    public void setupRecipes(IModRegistry registry)
     {
-        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.marketItemBlock), getUid());
         List<MarketRecipeWrapper> rec = new ArrayList<>();
         for(int i = 0; i < MarketItems.getSize(); i++)
         {

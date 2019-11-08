@@ -3,7 +3,6 @@ package ru.pearx.jehc.jei.machine;
 import com.pam.harvestcraft.blocks.BlockRegistry;
 import com.pam.harvestcraft.item.WaterFilterRecipes;
 import mezz.jei.api.IGuiHelper;
-import mezz.jei.api.IModRegistry;
 import net.minecraft.item.ItemStack;
 
 /*
@@ -13,13 +12,6 @@ public class WaterFilterCategory extends MachineRecipeCategory
 {
     public WaterFilterCategory(IGuiHelper helper)
     {
-        super("jehc.waterfilter", "jehc.waterfilter.name", "waterfilter", WaterFilterRecipes.class, "waterfilterList", helper);
-    }
-
-    @Override
-    public void setup(IModRegistry registry)
-    {
-        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.waterfilterItemBlock), getUid());
-        super.setup(registry);
+        super("jehc.waterfilter", new ItemStack(BlockRegistry.waterfilterItemBlock), "waterfilter", WaterFilterRecipes.class, "waterfilterList", helper);
     }
 }

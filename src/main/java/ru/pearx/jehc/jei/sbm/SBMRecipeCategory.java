@@ -7,6 +7,7 @@ import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -18,9 +19,9 @@ import ru.pearx.jehc.jei.JehcRecipeCategory;
 @SideOnly(Side.CLIENT)
 public abstract class SBMRecipeCategory extends JehcRecipeCategory<IRecipeWrapper>
 {
-    public SBMRecipeCategory(String uid, String unlocalizedTitle, String png, IGuiHelper helper)
+    public SBMRecipeCategory(String uid, ItemStack catalyst, String png, IGuiHelper helper)
     {
-        super(uid, unlocalizedTitle, helper.drawableBuilder(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 32, 0, 112, 76).build());
+        super(uid, catalyst, helper.drawableBuilder(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 32, 0, 112, 76).build());
     }
 
     @Override

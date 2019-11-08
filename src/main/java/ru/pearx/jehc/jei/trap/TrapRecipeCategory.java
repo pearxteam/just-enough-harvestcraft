@@ -4,6 +4,7 @@ import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -15,9 +16,9 @@ import ru.pearx.jehc.jei.JehcRecipeCategory;
 @SideOnly(Side.CLIENT)
 public abstract class TrapRecipeCategory extends JehcRecipeCategory<TrapRecipeWrapper>
 {
-    public TrapRecipeCategory(String uid, String unlocalizedTitle, String png, IGuiHelper help)
+    public TrapRecipeCategory(String uid, ItemStack catalyst, String png, IGuiHelper help)
     {
-        super(uid, unlocalizedTitle, help.drawableBuilder(new ResourceLocation("jehc", "textures/gui/" + png + "_trap_small.png"), 0, 0, 81, 29).setTextureSize(81, 29).build());
+        super(uid, catalyst, help.drawableBuilder(new ResourceLocation("jehc", "textures/gui/" + png + "_trap_small.png"), 0, 0, 81, 29).setTextureSize(81, 29).build());
     }
 
     @Override

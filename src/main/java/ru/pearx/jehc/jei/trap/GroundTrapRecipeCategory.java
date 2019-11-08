@@ -19,13 +19,12 @@ public class GroundTrapRecipeCategory extends TrapRecipeCategory
 {
     public GroundTrapRecipeCategory(IGuiHelper helper)
     {
-        super("jehc.ground_trap", "jehc.ground_trap.name", "ground", helper);
+        super("jehc.ground_trap", new ItemStack(BlockRegistry.groundtrapItemBlock), "ground", helper);
     }
 
     @Override
-    public void setup(IModRegistry registry)
+    public void setupRecipes(IModRegistry registry)
     {
-        registry.addRecipeCatalyst(new ItemStack(BlockRegistry.groundtrapItemBlock), getUid());
         ItemStack grain = new ItemStack(ItemRegistry.grainbaitItem);
         ItemStack fruit = new ItemStack(ItemRegistry.fruitbaitItem);
         ItemStack veggie = new ItemStack(ItemRegistry.veggiebaitItem);

@@ -6,6 +6,7 @@ import mezz.jei.api.gui.IDrawable;
 import mezz.jei.api.recipe.IRecipeCategory;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -16,17 +17,22 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public abstract class JehcRecipeCategory<T extends IRecipeWrapper> implements IRecipeCategory<T>
 {
     private String uid;
-    private String unlocalizedTitle;
     private IDrawable background;
+    private ItemStack catalyst;
 
-    public JehcRecipeCategory(String uid, String unlocalizedTitle, IDrawable background)
+    public JehcRecipeCategory(String uid, ItemStack catalyst, IDrawable background)
     {
         this.uid = uid;
-        this.unlocalizedTitle = unlocalizedTitle;
+        this.catalyst = catalyst;
         this.background = background;
     }
 
-    public abstract void setup(IModRegistry reg);
+    public final void setup(IModRegistry reg) {
+        reg.addRecipeCatalyst(catalyst, getUid());
+        setupRecipes(reg);
+    }
+
+    public abstract void setupRecipes(IModRegistry reg);
 
     @Override
     public String getUid()
@@ -37,7 +43,7 @@ public abstract class JehcRecipeCategory<T extends IRecipeWrapper> implements IR
     @Override
     public String getTitle()
     {
-        return I18n.format(unlocalizedTitle);
+        return I18n.format(catalyst.getTranslationKey() + ".name");
     }
 
     @Override

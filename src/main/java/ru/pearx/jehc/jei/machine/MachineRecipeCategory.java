@@ -20,19 +20,19 @@ import java.util.Map;
  */
 public class MachineRecipeCategory extends JehcRecipeCategory<MachineRecipeWrapper>
 {
-    private Class recClass;
+    private Class<?> recClass;
     private String recField;
 
-    public MachineRecipeCategory(String uid, String unlocalizedTitle, String png, Class recClass, String recField, IGuiHelper helper)
+    public MachineRecipeCategory(String uid, ItemStack catalyst, String png, Class recClass, String recField, IGuiHelper helper)
     {
-        super(uid, unlocalizedTitle, helper.drawableBuilder(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 3, 8, 170, 66).build());
+        super(uid, catalyst, helper.drawableBuilder(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 3, 8, 170, 66).build());
         this.recClass = recClass;
         this.recField = recField;
     }
 
     @SuppressWarnings("unchecked")
     @Override
-    public void setup(IModRegistry registry)
+    public void setupRecipes(IModRegistry registry)
     {
         List<MachineRecipeWrapper> rec = new ArrayList<>();
         try
