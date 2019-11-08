@@ -15,16 +15,13 @@ import java.util.Arrays;
  * Created by mrAppleXZ on 19.07.17 11:34.
  */
 @SideOnly(Side.CLIENT)
-public class GroundTrapRecipeCategory extends TrapRecipeCategory
-{
-    public GroundTrapRecipeCategory(IGuiHelper helper)
-    {
+public class GroundTrapRecipeCategory extends TrapRecipeCategory {
+    public GroundTrapRecipeCategory(IGuiHelper helper) {
         super("jehc.ground_trap", new ItemStack(BlockRegistry.groundtrapItemBlock), "ground", helper);
     }
 
     @Override
-    public void setupRecipes(IModRegistry registry)
-    {
+    public void setupRecipes(IModRegistry registry) {
         ItemStack grain = new ItemStack(ItemRegistry.grainbaitItem);
         ItemStack fruit = new ItemStack(ItemRegistry.fruitbaitItem);
         ItemStack veggie = new ItemStack(ItemRegistry.veggiebaitItem);

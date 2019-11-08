@@ -11,10 +11,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * Created by mrAppleXZ on 22.03.18 20:29.
  */
 @SideOnly(Side.CLIENT)
-public class GrinderRecipeCategory extends MachineRecipeCategory
-{
-    public GrinderRecipeCategory(IGuiHelper helper)
-    {
+public class GrinderRecipeCategory extends MachineRecipeCategory {
+    public GrinderRecipeCategory(IGuiHelper helper) {
         super("jehc.grinder", new ItemStack(BlockRegistry.grinderItemBlock), "grinder", GrinderRecipes.class, "grindingList", helper);
     }
 }

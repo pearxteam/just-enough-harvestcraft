@@ -15,19 +15,15 @@ import java.util.List;
  * Created by mrAppleXZ on 20.05.17 23:51.
  */
 @SideOnly(Side.CLIENT)
-public class MarketRecipeCategory extends SBMRecipeCategory
-{
-    public MarketRecipeCategory(IGuiHelper helper)
-    {
+public class MarketRecipeCategory extends SBMRecipeCategory {
+    public MarketRecipeCategory(IGuiHelper helper) {
         super("jehc.market", new ItemStack(BlockRegistry.marketItemBlock), "market", helper);
     }
 
     @Override
-    public void setupRecipes(IModRegistry registry)
-    {
+    public void setupRecipes(IModRegistry registry) {
         List<MarketRecipeWrapper> rec = new ArrayList<>();
-        for(int i = 0; i < MarketItems.getSize(); i++)
-        {
+        for (int i = 0; i < MarketItems.getSize(); i++) {
             rec.add(new MarketRecipeWrapper(MarketItems.getData(i)));
         }
         registry.addRecipes(rec, getUid());

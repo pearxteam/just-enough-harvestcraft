@@ -24,33 +24,29 @@ import java.util.List;
  */
 @JEIPlugin
 @SideOnly(Side.CLIENT)
-public class JehcPlugin implements IModPlugin
-{
-    private List<JehcRecipeCategory> cats;
+public class JehcPlugin implements IModPlugin {
+    private List<JehcRecipeCategory<?>> categories;
 
     @Override
-    public void register(IModRegistry registry)
-    {
-        for(JehcRecipeCategory cat : cats)
-            cat.setup(registry);
+    public void registerCategories(IRecipeCategoryRegistration reg) {
+        categories = new ArrayList<>();
+        IGuiHelper helper = reg.getJeiHelpers().getGuiHelper();
+        categories.add(new PresserRecipeCategory(helper));
+        categories.add(new ShippingBinRecipeCategory(helper));
+        categories.add(new MarketRecipeCategory(helper));
+        categories.add(new ApiaryRecipeCategory(helper));
+        categories.add(new GroundTrapRecipeCategory(helper));
+        categories.add(new WaterTrapRecipeCategory(helper));
+        categories.add(new GrinderRecipeCategory(helper));
+        categories.add(new WaterFilterCategory(helper));
+        for (JehcRecipeCategory<?> category : categories) {
+            reg.addRecipeCategories(category);
+        }
     }
 
     @Override
-    public void registerCategories(IRecipeCategoryRegistration reg)
-    {
-        cats = new ArrayList<>();
-        IGuiHelper h = reg.getJeiHelpers().getGuiHelper();
-        cats.add(new PresserRecipeCategory(h));
-        cats.add(new ShippingBinRecipeCategory(h));
-        cats.add(new MarketRecipeCategory(h));
-        cats.add(new ApiaryRecipeCategory(h));
-        cats.add(new GroundTrapRecipeCategory(h));
-        cats.add(new WaterTrapRecipeCategory(h));
-        cats.add(new GrinderRecipeCategory(h));
-        cats.add(new WaterFilterCategory(h));
-        for(JehcRecipeCategory cat : cats)
-        {
-            reg.addRecipeCategories(cat);
-        }
+    public void register(IModRegistry registry) {
+        for (JehcRecipeCategory<?> category : categories)
+            category.setup(registry);
     }
 }

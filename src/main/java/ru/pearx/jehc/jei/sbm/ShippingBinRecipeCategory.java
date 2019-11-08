@@ -15,19 +15,15 @@ import java.util.List;
  * Created by mrAppleXZ on 20.05.17 23:01.
  */
 @SideOnly(Side.CLIENT)
-public class ShippingBinRecipeCategory extends SBMRecipeCategory
-{
-    public ShippingBinRecipeCategory(IGuiHelper helper)
-    {
+public class ShippingBinRecipeCategory extends SBMRecipeCategory {
+    public ShippingBinRecipeCategory(IGuiHelper helper) {
         super("jehc.shippingbin", new ItemStack(BlockRegistry.shippingbinItemBlock), "shippingbin", helper);
     }
 
     @Override
-    public void setupRecipes(IModRegistry registry)
-    {
+    public void setupRecipes(IModRegistry registry) {
         List<ShippingBinRecipeWrapper> rec = new ArrayList<>();
-        for(int i = 0; i < ShippingBinItems.getSize(); i++)
-        {
+        for (int i = 0; i < ShippingBinItems.getSize(); i++) {
             rec.add(new ShippingBinRecipeWrapper(ShippingBinItems.getData(i)));
         }
         registry.addRecipes(rec, getUid());

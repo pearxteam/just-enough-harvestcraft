@@ -14,14 +14,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * Created by mrAppleXZ on 22.03.18 20:48.
  */
 @SideOnly(Side.CLIENT)
-public abstract class JehcRecipeCategory<T extends IRecipeWrapper> implements IRecipeCategory<T>
-{
+public abstract class JehcRecipeCategory<T extends IRecipeWrapper> implements IRecipeCategory<T> {
     private String uid;
     private IDrawable background;
     private ItemStack catalyst;
 
-    public JehcRecipeCategory(String uid, ItemStack catalyst, IDrawable background)
-    {
+    public JehcRecipeCategory(String uid, ItemStack catalyst, IDrawable background) {
         this.uid = uid;
         this.catalyst = catalyst;
         this.background = background;
@@ -35,26 +33,22 @@ public abstract class JehcRecipeCategory<T extends IRecipeWrapper> implements IR
     public abstract void setupRecipes(IModRegistry reg);
 
     @Override
-    public String getUid()
-    {
+    public String getUid() {
         return uid;
     }
 
     @Override
-    public String getTitle()
-    {
+    public String getTitle() {
         return I18n.format(catalyst.getTranslationKey() + ".name");
     }
 
     @Override
-    public String getModName()
-    {
+    public String getModName() {
         return Reference.NAME;
     }
 
     @Override
-    public IDrawable getBackground()
-    {
+    public IDrawable getBackground() {
         return background;
     }
 }

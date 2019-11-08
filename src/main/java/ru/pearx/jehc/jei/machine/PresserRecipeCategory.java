@@ -11,10 +11,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * Created by mrAppleXZ on 20.05.17 16:08.
  */
 @SideOnly(Side.CLIENT)
-public class PresserRecipeCategory extends MachineRecipeCategory
-{
-    public PresserRecipeCategory(IGuiHelper helper)
-    {
+public class PresserRecipeCategory extends MachineRecipeCategory {
+    public PresserRecipeCategory(IGuiHelper helper) {
         super("jehc.presser", new ItemStack(BlockRegistry.presserItemBlock), "presser", PresserRecipes.class, "pressingList", helper);
     }
 }

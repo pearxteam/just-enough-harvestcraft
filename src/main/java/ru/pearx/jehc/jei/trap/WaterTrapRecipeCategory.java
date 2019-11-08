@@ -15,16 +15,13 @@ import java.util.Arrays;
  * Created by mrAppleXZ on 19.07.17 12:34.
  */
 @SideOnly(Side.CLIENT)
-public class WaterTrapRecipeCategory extends TrapRecipeCategory
-{
-    public WaterTrapRecipeCategory(IGuiHelper helper)
-    {
+public class WaterTrapRecipeCategory extends TrapRecipeCategory {
+    public WaterTrapRecipeCategory(IGuiHelper helper) {
         super("jehc.water_trap", new ItemStack(BlockRegistry.watertrapItemBlock), "water", helper);
     }
 
     @Override
-    public void setupRecipes(IModRegistry registry)
-    {
+    public void setupRecipes(IModRegistry registry) {
         ItemStack fishBait = new ItemStack(ItemRegistry.fishtrapbaitItem);
         registry.addRecipes(Arrays.asList(
                 new TrapRecipeWrapper.Water(fishBait, new ItemStack(Items.FISH, 1, 0)),

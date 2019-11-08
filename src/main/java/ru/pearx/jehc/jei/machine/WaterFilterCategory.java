@@ -8,10 +8,8 @@ import net.minecraft.item.ItemStack;
 /*
  * Created by mrAppleXZ on 05.07.18 2:57
  */
-public class WaterFilterCategory extends MachineRecipeCategory
-{
-    public WaterFilterCategory(IGuiHelper helper)
-    {
+public class WaterFilterCategory extends MachineRecipeCategory {
+    public WaterFilterCategory(IGuiHelper helper) {
         super("jehc.waterfilter", new ItemStack(BlockRegistry.waterfilterItemBlock), "waterfilter", WaterFilterRecipes.class, "waterfilterList", helper);
     }
 }

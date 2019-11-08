@@ -12,21 +12,18 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * Created by mrAppleXZ on 20.05.17 22:57.
  */
 @SideOnly(Side.CLIENT)
-public class ShippingBinRecipeWrapper implements IRecipeWrapper
-{
-    private ShippingBinData sbd;
+public class ShippingBinRecipeWrapper implements IRecipeWrapper {
+    private ShippingBinData data;
 
-    public ShippingBinRecipeWrapper(ShippingBinData data)
-    {
-        this.sbd = data;
+    public ShippingBinRecipeWrapper(ShippingBinData data) {
+        this.data = data;
     }
 
     @Override
-    public void getIngredients(IIngredients ingredients)
-    {
-        ItemStack pr = sbd.getCurrency().copy();
-        pr.setCount(sbd.getPrice());
+    public void getIngredients(IIngredients ingredients) {
+        ItemStack pr = data.getCurrency().copy();
+        pr.setCount(data.getPrice());
         ingredients.setInput(VanillaTypes.ITEM, pr);
-        ingredients.setOutput(VanillaTypes.ITEM, sbd.getItem());
+        ingredients.setOutput(VanillaTypes.ITEM, data.getItem());
     }
 }

@@ -12,18 +12,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * Created by mrAppleXZ on 20.05.17 23:45.
  */
 @SideOnly(Side.CLIENT)
-public class MarketRecipeWrapper implements IRecipeWrapper
-{
+public class MarketRecipeWrapper implements IRecipeWrapper {
     private MarketData md;
 
-    public MarketRecipeWrapper(MarketData data)
-    {
+    public MarketRecipeWrapper(MarketData data) {
         md = data;
     }
 
     @Override
-    public void getIngredients(IIngredients ingredients)
-    {
+    public void getIngredients(IIngredients ingredients) {
         ItemStack pr = md.getCurrency().copy();
         pr.setCount(md.getPrice());
         ingredients.setInput(VanillaTypes.ITEM, pr);
