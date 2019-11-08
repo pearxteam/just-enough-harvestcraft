@@ -16,7 +16,7 @@ val versionMappings = mapOf(
     "com.wynprice.cursemaven" to curseMavenVersion
 )
 
-rootProject.name = "jehc-$minecraftVersion"
+rootProject.name = "just-enough-harvestcraft-$minecraftVersion"
 
 pluginManagement {
     repositories {

@@ -107,7 +107,7 @@ configure<CurseExtension> {
 configure<GithubReleaseExtension> {
     setToken(githubAccessToken)
     setOwner("pearxteam")
-    setRepo("jehc")
+    setRepo("just-enough-harvestcraft")
     setTargetCommitish(githubReleaseBranch)
     setBody(modChangelog)
     setReleaseAssets((publishing.publications["maven"] as MavenPublication).artifacts.map { it.file })
