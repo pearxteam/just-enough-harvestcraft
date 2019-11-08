@@ -1,4 +1,4 @@
-package ru.pearx.jehc.jei.machine;
+package net.pearx.jehc.jei.machine;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
@@ -8,8 +8,8 @@ import mezz.jei.api.ingredients.VanillaTypes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import org.apache.commons.lang3.reflect.FieldUtils;
-import ru.pearx.jehc.Jehc;
-import ru.pearx.jehc.jei.JehcRecipeCategory;
+import net.pearx.jehc.Jehc;
+import net.pearx.jehc.jei.JehcRecipeCategory;
 
 import java.util.ArrayList;
 import java.util.List;

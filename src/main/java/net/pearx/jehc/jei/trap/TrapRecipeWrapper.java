@@ -1,4 +1,4 @@
-package ru.pearx.jehc.jei.trap;
+package net.pearx.jehc.jei.trap;
 
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;

@@ -1,4 +1,4 @@
-package ru.pearx.jehc.jei;
+package net.pearx.jehc.jei;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModPlugin;
@@ -7,14 +7,14 @@ import mezz.jei.api.JEIPlugin;
 import mezz.jei.api.recipe.IRecipeCategoryRegistration;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import ru.pearx.jehc.jei.apiary.ApiaryRecipeCategory;
-import ru.pearx.jehc.jei.machine.GrinderRecipeCategory;
-import ru.pearx.jehc.jei.machine.PresserRecipeCategory;
-import ru.pearx.jehc.jei.machine.WaterFilterCategory;
-import ru.pearx.jehc.jei.sbm.MarketRecipeCategory;
-import ru.pearx.jehc.jei.sbm.ShippingBinRecipeCategory;
-import ru.pearx.jehc.jei.trap.GroundTrapRecipeCategory;
-import ru.pearx.jehc.jei.trap.WaterTrapRecipeCategory;
+import net.pearx.jehc.jei.apiary.ApiaryRecipeCategory;
+import net.pearx.jehc.jei.machine.GrinderRecipeCategory;
+import net.pearx.jehc.jei.machine.PresserRecipeCategory;
+import net.pearx.jehc.jei.machine.WaterFilterCategory;
+import net.pearx.jehc.jei.sbm.MarketRecipeCategory;
+import net.pearx.jehc.jei.sbm.ShippingBinRecipeCategory;
+import net.pearx.jehc.jei.trap.GroundTrapRecipeCategory;
+import net.pearx.jehc.jei.trap.WaterTrapRecipeCategory;
 
 import java.util.ArrayList;
 import java.util.List;

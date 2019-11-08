@@ -40,7 +40,7 @@ val devBuildNumber: String? by project
 val githubAccessToken: String? by project
 
 version = if(devBuildNumber != null) "$modVersion-dev-$devBuildNumber" else modVersion
-group = "ru.pearx.jehc"
+group = "net.pearx.jehc"
 description = modDescription
 
 java {

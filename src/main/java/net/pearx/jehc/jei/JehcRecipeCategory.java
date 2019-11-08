@@ -1,4 +1,4 @@
-package ru.pearx.jehc.jei;
+package net.pearx.jehc.jei;
 
 import com.pam.harvestcraft.Reference;
 import mezz.jei.api.IModRegistry;

@@ -1,4 +1,4 @@
-package ru.pearx.jehc.jei.machine;
+package net.pearx.jehc.jei.machine;
 
 import com.pam.harvestcraft.blocks.BlockRegistry;
 import com.pam.harvestcraft.item.PresserRecipes;

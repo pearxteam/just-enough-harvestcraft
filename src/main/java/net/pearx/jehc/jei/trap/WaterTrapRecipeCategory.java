@@ -1,4 +1,4 @@
-package ru.pearx.jehc.jei.trap;
+package net.pearx.jehc.jei.trap;
 
 import com.pam.harvestcraft.blocks.BlockRegistry;
 import com.pam.harvestcraft.item.ItemRegistry;

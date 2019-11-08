@@ -1,4 +1,4 @@
-package ru.pearx.jehc.jei.apiary;
+package net.pearx.jehc.jei.apiary;
 
 import com.pam.harvestcraft.blocks.BlockRegistry;
 import com.pam.harvestcraft.item.ItemRegistry;
@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import ru.pearx.jehc.jei.JehcRecipeCategory;
+import net.pearx.jehc.jei.JehcRecipeCategory;
 
 import java.util.Arrays;
 

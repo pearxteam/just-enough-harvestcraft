@@ -1,4 +1,4 @@
-package ru.pearx.jehc;
+package net.pearx.jehc;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.ModMetadata;

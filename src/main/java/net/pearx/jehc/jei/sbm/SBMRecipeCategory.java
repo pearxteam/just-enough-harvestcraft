@@ -1,4 +1,4 @@
-package ru.pearx.jehc.jei.sbm;
+package net.pearx.jehc.jei.sbm;
 
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IRecipeLayout;
@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import ru.pearx.jehc.jei.JehcRecipeCategory;
+import net.pearx.jehc.jei.JehcRecipeCategory;
 
 /*
  * Created by mrAppleXZ on 20.05.17 23:54.
