@@ -5,11 +5,13 @@ import mezz.jei.api.IModRegistry;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.inventory.Container;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.apache.commons.lang3.reflect.FieldUtils;
 import net.pearx.jehc.Jehc;
 import net.pearx.jehc.jei.JehcRecipeCategory;
+import org.apache.commons.lang3.reflect.FieldUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,16 +23,23 @@ import java.util.Map;
 public class MachineRecipeCategory extends JehcRecipeCategory<MachineRecipeWrapper> {
     private Class<?> recClass;
     private String recField;
+    private Class<? extends GuiContainer> guiClass;
+    private Class<? extends Container> containerClass;
 
-    public MachineRecipeCategory(String uid, ItemStack catalyst, String png, Class<?> recClass, String recField, IGuiHelper helper) {
+    public MachineRecipeCategory(String uid, ItemStack catalyst, String png, Class<?> recClass, String recField, IGuiHelper helper, Class<? extends GuiContainer> guiClass, Class<? extends Container> containerClass) {
         super(uid, catalyst, helper.drawableBuilder(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 3, 8, 170, 66).build());
         this.recClass = recClass;
         this.recField = recField;
+        this.guiClass = guiClass;
+        this.containerClass = containerClass;
     }
 
     @SuppressWarnings("unchecked")
     @Override
     public void setupRecipes(IModRegistry registry) {
+        registry.addRecipeClickArea(guiClass, 77, 12, 22, 6, getUid());
+        registry.getRecipeTransferRegistry().addRecipeTransferHandler(containerClass, getUid(), 0, 1, 3, 36);
+
         List<MachineRecipeWrapper> rec = new ArrayList<>();
         try {
             for (Map.Entry<ItemStack, ItemStack[]> entr : ((Map<ItemStack, ItemStack[]>) FieldUtils.readStaticField(recClass, recField, true)).entrySet()) {
