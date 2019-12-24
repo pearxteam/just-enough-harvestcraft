@@ -1,6 +1,8 @@
 package net.pearx.jehc.jei.trap;
 
 import com.pam.harvestcraft.blocks.BlockRegistry;
+import com.pam.harvestcraft.gui.ContainerWaterTrap;
+import com.pam.harvestcraft.gui.GuiWaterTrap;
 import com.pam.harvestcraft.item.ItemRegistry;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
@@ -17,11 +19,12 @@ import java.util.Arrays;
 @SideOnly(Side.CLIENT)
 public class WaterTrapRecipeCategory extends TrapRecipeCategory {
     public WaterTrapRecipeCategory(IGuiHelper helper) {
-        super("jehc.water_trap", new ItemStack(BlockRegistry.watertrapItemBlock), "water", helper);
+        super("jehc.water_trap", new ItemStack(BlockRegistry.watertrapItemBlock), "water", helper, GuiWaterTrap.class, ContainerWaterTrap.class);
     }
 
     @Override
     public void setupRecipes(IModRegistry registry) {
+        super.setupRecipes(registry);
         ItemStack fishBait = new ItemStack(ItemRegistry.fishtrapbaitItem);
         registry.addRecipes(Arrays.asList(
                 new TrapRecipeWrapper.Water(fishBait, new ItemStack(Items.FISH, 1, 0)),

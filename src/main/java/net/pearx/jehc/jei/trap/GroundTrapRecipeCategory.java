@@ -1,6 +1,8 @@
 package net.pearx.jehc.jei.trap;
 
 import com.pam.harvestcraft.blocks.BlockRegistry;
+import com.pam.harvestcraft.gui.ContainerGroundTrap;
+import com.pam.harvestcraft.gui.GuiGroundTrap;
 import com.pam.harvestcraft.item.ItemRegistry;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
@@ -17,11 +19,12 @@ import java.util.Arrays;
 @SideOnly(Side.CLIENT)
 public class GroundTrapRecipeCategory extends TrapRecipeCategory {
     public GroundTrapRecipeCategory(IGuiHelper helper) {
-        super("jehc.ground_trap", new ItemStack(BlockRegistry.groundtrapItemBlock), "ground", helper);
+        super("jehc.ground_trap", new ItemStack(BlockRegistry.groundtrapItemBlock), "ground", helper, GuiGroundTrap.class, ContainerGroundTrap.class);
     }
 
     @Override
     public void setupRecipes(IModRegistry registry) {
+        super.setupRecipes(registry);
         ItemStack grain = new ItemStack(ItemRegistry.grainbaitItem);
         ItemStack fruit = new ItemStack(ItemRegistry.fruitbaitItem);
         ItemStack veggie = new ItemStack(ItemRegistry.veggiebaitItem);
