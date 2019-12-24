@@ -1,11 +1,13 @@
 package net.pearx.jehc.jei.sbm;
 
 import mezz.jei.api.IGuiHelper;
+import mezz.jei.api.IModRegistry;
 import mezz.jei.api.gui.IRecipeLayout;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -18,8 +20,16 @@ import net.pearx.jehc.jei.JehcRecipeCategory;
  */
 @SideOnly(Side.CLIENT)
 public abstract class SBMRecipeCategory extends JehcRecipeCategory<IRecipeWrapper> {
-    public SBMRecipeCategory(String uid, ItemStack catalyst, String png, IGuiHelper helper) {
+    private Class<? extends GuiContainer> guiClass;
+
+    public SBMRecipeCategory(String uid, ItemStack catalyst, String png, IGuiHelper helper, Class<? extends GuiContainer> guiClass) {
         super(uid, catalyst, helper.drawableBuilder(new ResourceLocation("harvestcraft", "textures/gui/" + png + ".png"), 32, 0, 112, 76).build());
+        this.guiClass = guiClass;
+    }
+
+    @Override
+    public void setupRecipes(IModRegistry registry) {
+        registry.addRecipeClickArea(guiClass, 99, 15, 36, 18, getUid());
     }
 
     @Override
