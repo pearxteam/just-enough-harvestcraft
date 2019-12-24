@@ -1,6 +1,8 @@
 package net.pearx.jehc.jei.apiary;
 
 import com.pam.harvestcraft.blocks.BlockRegistry;
+import com.pam.harvestcraft.gui.ContainerApiary;
+import com.pam.harvestcraft.gui.GuiApiary;
 import com.pam.harvestcraft.item.ItemRegistry;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModRegistry;
@@ -26,10 +28,13 @@ public class ApiaryRecipeCategory extends JehcRecipeCategory<ApiaryRecipeWrapper
 
     @Override
     public void setupRecipes(IModRegistry registry) {
+        registry.addRecipeClickArea(GuiApiary.class, 8, 55, 50, 12, getUid());
+        registry.getRecipeTransferRegistry().addRecipeTransferHandler(ContainerApiary.class, getUid(), 18, 1, 19, 36);
+        ItemStack bee = new ItemStack(ItemRegistry.queenbeeItem, 1);
         registry.addRecipes(Arrays.asList(
-                new ApiaryRecipeWrapper(new ItemStack(ItemRegistry.queenbeeItem), new ItemStack(ItemRegistry.waxcombItem), 50),
-                new ApiaryRecipeWrapper(new ItemStack(ItemRegistry.queenbeeItem), new ItemStack(ItemRegistry.honeycombItem), 45),
-                new ApiaryRecipeWrapper(new ItemStack(ItemRegistry.queenbeeItem), new ItemStack(ItemRegistry.grubItem), 5)
+                new ApiaryRecipeWrapper(bee, new ItemStack(ItemRegistry.waxcombItem), 50),
+                new ApiaryRecipeWrapper(bee, new ItemStack(ItemRegistry.honeycombItem), 45),
+                new ApiaryRecipeWrapper(bee, new ItemStack(ItemRegistry.grubItem), 5)
         ), getUid());
     }
 
