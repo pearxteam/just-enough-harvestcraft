@@ -1,4 +1,4 @@
-package net.pearx.jehc.jei.sbm;
+package net.pearx.jehc.jei.sbm.shippingbin;
 
 import com.pam.harvestcraft.blocks.BlockRegistry;
 import com.pam.harvestcraft.gui.GuiShippingBin;
@@ -8,6 +8,7 @@ import mezz.jei.api.IModRegistry;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.pearx.jehc.jei.sbm.SBMRecipeCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,7 @@ public class ShippingBinRecipeCategory extends SBMRecipeCategory {
     @Override
     public void setupRecipes(IModRegistry registry) {
         super.setupRecipes(registry);
+        registry.getRecipeTransferRegistry().addRecipeTransferHandler(new ShippingBinRecipeTransferHandler(), getUid());
         List<ShippingBinRecipeWrapper> rec = new ArrayList<>();
         for (int i = 0; i < ShippingBinItems.getSize(); i++) {
             rec.add(new ShippingBinRecipeWrapper(ShippingBinItems.getData(i)));

@@ -1,4 +1,4 @@
-package net.pearx.jehc.jei.sbm;
+package net.pearx.jehc.jei.sbm.shippingbin;
 
 import com.pam.harvestcraft.tileentities.ShippingBinData;
 import mezz.jei.api.ingredients.IIngredients;

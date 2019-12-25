@@ -50,8 +50,8 @@ repositories {
 }
 
 dependencies {
-    "deobfCompile"("mezz.jei:jei_$jeiMcVersion:$jeiVersion:api")
-    "runtime"("mezz.jei:jei_$jeiMcVersion:$jeiVersion")
+    "deobfCompile"("mezz.jei:jei_$jeiMcVersion:$jeiVersion")
+//    "runtime"("mezz.jei:jei_$jeiMcVersion:$jeiVersion")
     "compile"("curse.maven:pams-harvestcraft:$harvestCraftFileId")
 }
 

@@ -11,8 +11,8 @@ import net.pearx.jehc.jei.apiary.ApiaryRecipeCategory;
 import net.pearx.jehc.jei.machine.GrinderRecipeCategory;
 import net.pearx.jehc.jei.machine.PresserRecipeCategory;
 import net.pearx.jehc.jei.machine.WaterFilterCategory;
-import net.pearx.jehc.jei.sbm.MarketRecipeCategory;
-import net.pearx.jehc.jei.sbm.ShippingBinRecipeCategory;
+import net.pearx.jehc.jei.sbm.market.MarketRecipeCategory;
+import net.pearx.jehc.jei.sbm.shippingbin.ShippingBinRecipeCategory;
 import net.pearx.jehc.jei.trap.GroundTrapRecipeCategory;
 import net.pearx.jehc.jei.trap.WaterTrapRecipeCategory;
 
