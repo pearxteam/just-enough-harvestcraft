@@ -43,6 +43,7 @@ public abstract class SBMRecipeTransferHandler<C extends Container, G extends Gu
         return containerClass;
     }
 
+    @SuppressWarnings("unchecked")
     @Nullable
     @Override
     public IRecipeTransferError transferRecipe(C container, IRecipeLayout recipeLayout, EntityPlayer player, boolean maxTransfer, boolean doTransfer) {
