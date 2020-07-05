@@ -66,6 +66,15 @@ configure<UserBaseExtension> {
     replaceIn("Jehc.java")
 }
 
+val sourcesJar by tasks.registering(Jar::class) {
+    classifier = "sources"
+    from(sourceSets["main"].allSource)
+}
+
+artifacts {
+    add("archives", sourcesJar)
+}
+
 publishing {
     repositories {
         fun AuthenticationSupported.pearxCredentials() {
@@ -88,7 +97,8 @@ publishing {
 
     publications {
         register<MavenPublication>("maven") {
-            artifact(tasks.getByName<Jar>("jar"))
+            from(components["java"])
+            artifact(sourcesJar.get())
         }
     }
 }
@@ -103,9 +113,15 @@ configure<CurseExtension> {
             requiredDependency("jei")
             requiredDependency("pams-harvestcraft")
         })
-        mainArtifact(tasks.named("jar").get(), closureOf<CurseArtifact> {
+
+        val arts = (publishing.publications["maven"] as MavenPublication).artifacts
+        val mainArt = arts.first { it.classifier == null }
+        val additionalArts = arts.filter { it.classifier != null }
+        mainArtifact(mainArt.file, closureOf<CurseArtifact> {
             displayName = "[$minecraftVersion] Just Enough HarvestCraft $version"
         })
+        additionalArts.forEach { addArtifact(it.file) }
+
         options(closureOf<Options> {
             detectNewerJava = true
         })
@@ -123,6 +139,9 @@ configure<GithubReleaseExtension> {
 }
 
 tasks {
+    "jar" {
+        finalizedBy("reobfJar")
+    }
     register("publishDevelop") {
         group = "publishing"
         dependsOn(withType<PublishToMavenRepository>().matching { it.repository == publishing.repositories["develop"] })
