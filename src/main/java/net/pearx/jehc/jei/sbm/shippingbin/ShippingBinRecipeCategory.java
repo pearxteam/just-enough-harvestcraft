@@ -13,9 +13,6 @@ import net.pearx.jehc.jei.sbm.SBMRecipeCategory;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Created by mrAppleXZ on 20.05.17 23:01.
- */
 @SideOnly(Side.CLIENT)
 public class ShippingBinRecipeCategory extends SBMRecipeCategory {
     public ShippingBinRecipeCategory(IGuiHelper helper) {

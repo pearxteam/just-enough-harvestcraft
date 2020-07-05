@@ -10,9 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-/*
- * Created by mrAppleXZ on 22.03.18 20:48.
- */
 @SideOnly(Side.CLIENT)
 public abstract class JehcRecipeCategory<T extends IRecipeWrapper> implements IRecipeCategory<T> {
     private String uid;

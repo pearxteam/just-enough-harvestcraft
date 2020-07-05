@@ -9,9 +9,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Collections;
 
-/*
- * Created by mrAppleXZ on 20.05.17 15:54.
- */
 @Mod(name = Jehc.NAME, modid = Jehc.MODID, version = Jehc.VERSION, acceptedMinecraftVersions = Jehc.ACCEPTED_MINECRAFT_VERSIONS, dependencies = Jehc.DEPENDENCIES, clientSideOnly = true)
 @SideOnly(Side.CLIENT)
 public class Jehc {

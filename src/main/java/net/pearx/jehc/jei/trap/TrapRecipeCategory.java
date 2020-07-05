@@ -13,9 +13,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.pearx.jehc.jei.JehcRecipeCategory;
 
-/*
- * Created by mrAppleXZ on 19.07.17 11:06.
- */
 @SideOnly(Side.CLIENT)
 public abstract class TrapRecipeCategory extends JehcRecipeCategory<TrapRecipeWrapper> {
     private Class<? extends GuiContainer> guiClass;

@@ -9,9 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-/*
- * Created by mrAppleXZ on 22.03.18 20:29.
- */
 @SideOnly(Side.CLIENT)
 public class GrinderRecipeCategory extends MachineRecipeCategory {
     public GrinderRecipeCategory(IGuiHelper helper) {

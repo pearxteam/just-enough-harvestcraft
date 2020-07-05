@@ -19,9 +19,6 @@ import net.pearx.jehc.jei.trap.WaterTrapRecipeCategory;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Created by mrAppleXZ on 20.05.17 16:23.
- */
 @JEIPlugin
 @SideOnly(Side.CLIENT)
 public class JehcPlugin implements IModPlugin {

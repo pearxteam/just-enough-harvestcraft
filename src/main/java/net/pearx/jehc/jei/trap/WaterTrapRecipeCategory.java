@@ -13,9 +13,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Arrays;
 
-/*
- * Created by mrAppleXZ on 19.07.17 12:34.
- */
 @SideOnly(Side.CLIENT)
 public class WaterTrapRecipeCategory extends TrapRecipeCategory {
     public WaterTrapRecipeCategory(IGuiHelper helper) {

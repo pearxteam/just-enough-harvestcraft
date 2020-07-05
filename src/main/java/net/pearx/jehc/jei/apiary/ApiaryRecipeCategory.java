@@ -17,9 +17,6 @@ import net.pearx.jehc.jei.JehcRecipeCategory;
 
 import java.util.Arrays;
 
-/*
- * Created by mrAppleXZ on 21.05.17 11:51.
- */
 @SideOnly(Side.CLIENT)
 public class ApiaryRecipeCategory extends JehcRecipeCategory<ApiaryRecipeWrapper> {
     public ApiaryRecipeCategory(IGuiHelper help) {

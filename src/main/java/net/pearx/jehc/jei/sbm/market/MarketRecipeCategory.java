@@ -13,9 +13,6 @@ import net.pearx.jehc.jei.sbm.SBMRecipeCategory;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Created by mrAppleXZ on 20.05.17 23:51.
- */
 @SideOnly(Side.CLIENT)
 public class MarketRecipeCategory extends SBMRecipeCategory {
     public MarketRecipeCategory(IGuiHelper helper) {

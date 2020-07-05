@@ -8,9 +8,6 @@ import net.minecraft.item.ItemStack;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Created by mrAppleXZ on 22.03.18 20:58.
- */
 public class MachineRecipeWrapper implements IRecipeWrapper {
     private final ItemStack in;
     private final ItemStack[] out;

@@ -17,9 +17,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/*
- * Created by mrAppleXZ on 22.03.18 20:46.
- */
 public class MachineRecipeCategory extends JehcRecipeCategory<MachineRecipeWrapper> {
     private Class<?> recClass;
     private String recField;

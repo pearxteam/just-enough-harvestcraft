@@ -9,9 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-/*
- * Created by mrAppleXZ on 20.05.17 16:08.
- */
 @SideOnly(Side.CLIENT)
 public class PresserRecipeCategory extends MachineRecipeCategory {
     public PresserRecipeCategory(IGuiHelper helper) {

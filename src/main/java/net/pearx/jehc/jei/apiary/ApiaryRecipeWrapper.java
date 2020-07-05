@@ -9,9 +9,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 
-/*
- * Created by mrAppleXZ on 21.05.17 11:41.
- */
 @SideOnly(Side.CLIENT)
 public class ApiaryRecipeWrapper implements IRecipeWrapper {
     private ItemStack out;

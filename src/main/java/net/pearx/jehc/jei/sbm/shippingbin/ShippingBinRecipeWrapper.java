@@ -8,9 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-/*
- * Created by mrAppleXZ on 20.05.17 22:57.
- */
 @SideOnly(Side.CLIENT)
 public class ShippingBinRecipeWrapper implements IRecipeWrapper {
     private ShippingBinData data;
